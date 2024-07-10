@@ -32,7 +32,7 @@ public class ClavePartido {
     }
     
     public String toString(){
-        return "Partido con equipo 1:  "+equipo1+ " , y equipo 2:  "+equipo2;
+        return "Clave Partido con Eq1:  "+equipo1+ " , y Eq2:  "+equipo2;
     }
     
     public boolean equals(ClavePartido otraClave){
@@ -40,11 +40,14 @@ public class ClavePartido {
     }
 
     @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 59 * hash + Objects.hashCode(this.equipo1);
-        hash = 59 * hash + Objects.hashCode(this.equipo2);
-        return hash;
-    }
+public int hashCode() {
+    int hash = 7;
+    hash = 23 * hash + Objects.hashCode(this.equipo1);
+    hash = 23 * hash + Objects.hashCode(this.equipo2);
+    return Math.abs(hash % 100);
+}
+
+    
+
 
 }

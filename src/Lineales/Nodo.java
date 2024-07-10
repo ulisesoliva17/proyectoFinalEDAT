@@ -1,25 +1,24 @@
-package ListaPartidos;
-import TDAS.Partido;
+package Lineales;
 
 /**
  *
  * @author ulise
  */
 public class Nodo {
-    private Partido elem;
+    private Object elem;
     private Nodo enlace;
     
-    public Nodo(Partido elemen, Nodo enla){
+    public Nodo(Object elemen, Nodo enla){
         elem= elemen;
         enlace=enla;
     }
-    public void setElem(Partido elemen){
+    public void setElem(Object elemen){
         elem=elemen;
     }
     public void setEnlace(Nodo enla){
         enlace=enla;
     }
-    public Partido getElem(){
+    public Object getElem(){
         return elem;
     }
     public Nodo getEnlace(){

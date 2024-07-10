@@ -38,6 +38,10 @@ public class Partido {
     public void setInstancia(String instancia) {
         this.instancia = instancia;
     }
+    public String toString(){
+        String msj= " instancia: "+instancia+"- G1: "+golesEq1+"- G2: "+golesEq2+"\n";
+        return msj;
+    }
     //Como el nodo hash ClavePartido tendra como hijos a partidos
     //Para saber el partido exacto que estoy buscando, lo hare mediante la instancia
     //para recorrer los partidos que se disputaron entre arg-chile por ejemplo
