@@ -69,26 +69,28 @@ public class ArbolAVL {
     }
 
     //------------------------------------------------------------------------------------------
-    public int altura() {
-        return alturaAux(raiz);
+  public int obtenerAltura(Comparable elem){
+        int alt = -1;
+        if(this.raiz!=null){
+            alt = alturaAux(this.raiz, elem);
+        }
+        return alt;
     }
 
-    private int alturaAux(NodoAVL aux) {
-        int alturaMaxima = 0;
-        if (aux != null) {
-
-            int alturaHijoIzq = alturaAux(aux.getIzquierdo());
-            int alturaHijoDer = alturaAux(aux.getDerecho());
-
-            if (alturaHijoIzq > alturaHijoDer) {
-                alturaMaxima = alturaHijoIzq + 1;
-            } else {
-                alturaMaxima = alturaHijoDer + 1;
+   private int alturaAux(NodoAVL n, Comparable elem){
+        int a = -1;
+        if(n!=null){
+            if(elem.compareTo(n.getElem()) == 0){
+                a = n.getAltura();
+            }else{
+                if(elem.compareTo(n.getElem())<0){
+                    a = alturaAux(n.getIzquierdo(), elem);
+                }else{
+                    a = alturaAux(n.getDerecho(), elem);            
+                }
             }
-        } else {
-            alturaMaxima = -1;
         }
-        return alturaMaxima;
+        return a;
     }
     //------------------------------------------------------------------------------------------------
 
@@ -122,12 +124,7 @@ public class ArbolAVL {
         if (rta) {
             //Como aux tiene un nuevo hijo, debo de recalcularle la altura
             aux.recalcularAltura();
-
-            /*Esto funciona a la vuelta recursiva, pregunta si los hijos del 
-            nodo que esta desapilandose recursivamente, estan desbalanceados, entonces los balancea*/
-            aux.setIzquierdo(balancearAux(aux.getIzquierdo()));
-            aux.setDerecho(balancearAux(aux.getDerecho()));
-
+            
             //Este caso solo sucede cuando el elemento se inserto, y en la vuelta recursiva
             //Contenplamos el caso de su la raiz esta desbalanceada, la balanceamos
             if (aux.getElem().compareTo(raiz.getElem()) == 0) {
@@ -136,6 +133,13 @@ public class ArbolAVL {
                 NodoAVL raizNueva = balancearAux(aux);
                 raiz = raizNueva;
             }
+
+            /*Esto funciona a la vuelta recursiva, pregunta si los hijos del 
+            nodo que esta desapilandose recursivamente, estan desbalanceados, entonces los balancea*/
+            aux.setIzquierdo(balancearAux(aux.getIzquierdo()));
+            aux.setDerecho(balancearAux(aux.getDerecho()));
+
+            
 
         }
         return rta;
@@ -319,22 +323,27 @@ public class ArbolAVL {
         return rotarDerecha(r);
     }
 
-    private NodoAVL balancearAux(NodoAVL nodo) {
-        NodoAVL aux = null;
-        //Si el balance del padre es 2, solo nos fijamos en el hijo izquierdo
-        if (balance(nodo) == 2) {
-            if (balance(nodo.getIzquierdo()) >= 0) {
-                aux = rotarDerecha(nodo);
-            } else {
-                aux = rotarIzqDer(nodo);
+   private NodoAVL balancearAux(NodoAVL n) {
+        NodoAVL aux = n;
+        if (n != null) {
+            if (balance(n) == 2) {
+                if (balance(n.getIzquierdo()) >= 0) {
+                    System.out.println("rota a derecha simple con pivote: "+n.getElem());
+                    aux = rotarDerecha(n);
+                } else {
+                    System.out.println("rota a izquierda derecha con pivote: "+n.getElem());
+                    aux = rotarIzqDer(n);
+                }
+
             }
-        }
-        //Si el balance del padre es -2, solo nos fijamos en el hijo derecho          
-        if (balance(nodo) == -2) {
-            if (balance(nodo.getDerecho()) <= 0) {
-                aux = rotarIzquierda(nodo);
-            } else {
-                aux = rotarDerIzq(nodo);
+            if (balance(n) == -2) {
+                if (balance(n.getDerecho()) <= 0) {
+                    System.out.println("rota a izquierda simple con pivote: "+n.getElem());
+                    aux = rotarIzquierda(n);
+                } else {
+                    System.out.println("rota a derecha izquierda con pivote: "+n.getElem());
+                    aux = rotarDerIzq(n);
+                }
             }
         }
         return aux;
@@ -343,7 +352,78 @@ public class ArbolAVL {
     /*el insertar no necesita revisar para arrriba, ya que siempre se insertar como hoja el nuevo elemento*/
  /*cada vez que insertas se balancean los hijos del nuevo nodo, entonces no necesito ir balanceando para arriba en el insertar, solo me preocupo por la raiz como caso especial, 
     y los hijos del nuevo nodo insertado*/
-    private int balance(NodoAVL aux) {
-        return alturaAux(aux.getIzquierdo()) - alturaAux(aux.getDerecho());
+    private int balance(NodoAVL nodo) {
+        return alturaActual(nodo.getIzquierdo()) - alturaActual(nodo.getDerecho());
     }
+    
+    private int alturaActual(NodoAVL n){
+        int alt;
+        if(n == null){
+            alt = -1;
+        }else{
+            alt = 1 + Math.max(alturaActual(n.getIzquierdo()), alturaActual(n.getDerecho()));
+        }
+        return alt;
+    }
+     public String toString() {
+        String mensaje = " ";
+        if (raiz == null) {
+            mensaje = "Arbol Vacio";
+        } else {
+            mensaje = toStringAux(this.raiz);
+        }
+        return mensaje;
+    }
+
+    private String toStringAux(NodoAVL nodo) {
+        String mensaje = "";
+        if (nodo != null) {
+            mensaje =  "~Nodo(ALT = "+nodo.getAltura()+"): C.E-->"+ nodo.getElem()+ " ; " +nodo.getEquipo().toString();
+            if (nodo.getIzquierdo() != null) {
+                mensaje += ("\n  H.I(ALT = "+nodo.getIzquierdo().getAltura()+"): C.E-->"+nodo.getIzquierdo().getElem()+ " ; " +nodo.getIzquierdo().getEquipo().toString())+"   || ";
+            } else {
+                mensaje += "\n H.I: - " ;
+            }
+            if (nodo.getDerecho() != null) {
+                mensaje += ("  H.D(ALT = "+nodo.getDerecho().getAltura()+"): C.E-->"+nodo.getDerecho().getElem()+ " ; " +nodo.getDerecho().getEquipo().toString()+"\n\n");
+            } else {
+                mensaje += " H.D: - \n\n";
+            }
+        }
+        if(nodo.getIzquierdo()!=null){
+            mensaje+= toStringAux(nodo.getIzquierdo());
+        }
+        if(nodo.getDerecho()!=null){
+            mensaje+= toStringAux(nodo.getDerecho());
+        }
+
+        return mensaje;
+    }
+     //OBTENER DATO
+    //Nos devuelve el Equipo que estamos buscando
+    public Equipo obtenerDato(Comparable elem){
+        Equipo res = null;
+        if(this.raiz!=null){
+            res = obtenerDatoAux(this.raiz, elem);
+        }
+        return res;
+    }
+    
+    private Equipo obtenerDatoAux(NodoAVL n, Comparable elem){
+        Equipo encontrada = null;
+        if(n!=null){
+            if(elem.compareTo(n.getElem()) == 0){
+                 encontrada = n.getEquipo();
+            }else{
+                if(elem.compareTo(n.getElem()) < 0){
+                    encontrada = obtenerDatoAux(n.getIzquierdo(),elem);
+                
+                }else{
+                    encontrada = obtenerDatoAux(n.getDerecho(),elem);
+                }
+            }       
+        }   
+        return encontrada;
+    }
+    
 }

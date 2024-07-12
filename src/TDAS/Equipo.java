@@ -69,13 +69,16 @@ public class Equipo {
 
     @Override
     public String toString() {
-        return "Equipo: " + nombre + ", nombreDT: " + nombreDT + ", grupo: " + grupo + ", puntosGanados: " +
-                puntosGanados + ", golesAFavor: " + golesAFavor + ", golesEnContra: " + golesEnContra;
+        return "Equipo: " + nombre;
     }
     public boolean equals(Equipo otroEquipo){
         return nombre.equalsIgnoreCase(otroEquipo.getNombre());
     }
     
+    public int compareTo(Equipo otroEquipo) {
+        // Comparación basada en el nombre del equipo (orden lexicográfico)
+        return this.nombre.compareTo(otroEquipo.getNombre());
+    }
     
 
 }
