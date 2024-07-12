@@ -31,6 +31,31 @@ public class HashMapeoAMuchos {
     public static int getTamanio() {
         return tamanio;
     }
+     //obtener dato
+    
+    public Partido obtenerDato(ClavePartido cl, Partido parti){
+        
+        int pos = cl.hashCode();
+        NodoHashMapeoM aux = this.hash[pos];
+        boolean encontrado = false;
+        while (!encontrado && aux != null) {
+            
+            if(aux.getClave().equals(cl)){
+                encontrado = true;
+            }else{    
+                aux = aux.getEnlace();
+            }
+        }
+        int posPartido;
+        Partido buscada = null;
+        
+        if(encontrado){
+            posPartido = aux.getPartidos().localizar(parti);
+            buscada= aux.getPartidos().recuperar(posPartido);
+        }
+
+        return buscada;
+    }
 
     public int localizar(ClavePartido cl, Partido parti) {
         boolean rta = false;
@@ -176,7 +201,7 @@ public class HashMapeoAMuchos {
         if (encontrado) {
             msj = aux.getPartidos().toString();
         } else {
-            msj = "No se encontro la clave buscada.";
+            msj = "ERROR.";
         }
         return msj;
     }

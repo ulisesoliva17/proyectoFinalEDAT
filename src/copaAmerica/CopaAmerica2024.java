@@ -1,15 +1,12 @@
 
 package copaAmerica;
 import GrafoCiudades.Grafo;
-import Hash.TablaHash;
 import HashPartidos.HashMapeoAMuchos;
-import ListaPartidos.Lista;
 import TDAS.Ciudad;
 import TDAS.ClavePartido;
 import TDAS.Partido;
 import TDAS.Equipo;
 import arbolAVL.ArbolAVL;
-
 import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -27,7 +24,7 @@ public class CopaAmerica2024 {
         HashMapeoAMuchos partidos= new HashMapeoAMuchos();
         Grafo ciudades= new Grafo();
         
-        String datos = "/Users/romangattas/Downloads/BASE-DE-DATOS.txt";
+        String datos = "/Users/ulise/Desktop/BASE-DE-DATOS.txt";
         int eleccion = 0;
         
         System.out.println("Presione '1' para realizar la carga inicial");
@@ -37,9 +34,9 @@ public class CopaAmerica2024 {
             String txt1 = "Se ha realizado la carga de datos correctamente. \n";
             System.out.println(txt1);
             txt1 += "ESTADO INICIAL DE LA BASE DE DATOS: \n";
-            txt1 += mostrarSistemaAux(datos, equipos, partidos, ciudades);
+            txt1 += mostrarSistemaAux(equipos, partidos, ciudades);
             registrarMovimiento(txt1);
-            ejecutaMenu(datos, equipos, partidos, ciudades);
+            ejecutaMenu(equipos, partidos, ciudades);
         }
         
          String txt2 = "ESTADO FINAL DE LA BDD: \n";
@@ -54,13 +51,15 @@ public class CopaAmerica2024 {
             String linea;
             //while encargado de cada linea de lectura del txt
             while((linea = bufferLectura.readLine()) != null){
+                //guardamos en un arreglos de String la linea completa, separando cada " ; " 
+                //es decir, en la pos 0 guardara la letra, luego en  pos1 lo que venga despues de ","
+                //y asi sucesivamente hasta que termine la linea de codigo y salte a la siguiente
                String[] datosLinea = linea.split(";");
                 if (datosLinea[0].equals("C")) {
-                    //Si es una ciudad esa linea, al metodo cargarCiudad le debo pasar la linea y el grafo
+                    //Si es una ciudad esa linea, al metodo cargarCiudad le debo pasar la linea (guardada en el arreglo) y el grafo
                     cargarCiudad(datosLinea, ciudades);
                 }
                 if (datosLinea[0].equals("R")) {
-                    //Si es una ruta esa linea, al metodo cargarRuta le debo pasar la linea y el grafo
                     cargarRuta(datosLinea, ciudades);
                 }
                 if (datosLinea[0].equals("E")) {
@@ -77,6 +76,7 @@ public class CopaAmerica2024 {
                 System.err.println("Error leyendo o escribiendo en algun archivo.");
         }
     }
+     //CARGA DE DATOS DESDE EL TXT
      private static void cargarCiudad(String[] datosCiudad, Grafo ciudades){
         String nombre = datosCiudad[1];
         boolean alojamiento = ("TRUE").equals(datosCiudad[2]);
@@ -104,7 +104,6 @@ public class CopaAmerica2024 {
           equipos.insertar(nombre, eq1);
       }
        private static void cargarPartido(String[] datosPartido, HashMapeoAMuchos partidos){
-        
         String eq1 = datosPartido[1];
         String eq2 = datosPartido[2];
         String instancia = datosPartido[3];
@@ -118,7 +117,8 @@ public class CopaAmerica2024 {
         
         partidos.insertar(unaClave, unPartido);
     }
-        public static void ejecutaMenu(ArbolAVL equipos, Grafo ciudades, HashMapeoAMuchos partidos){
+       //MENU
+        public static void ejecutaMenu(ArbolAVL equipos,HashMapeoAMuchos partidos,Grafo ciudades){
         Scanner sc = new Scanner(System.in);
         int eleccion;
         
@@ -212,7 +212,7 @@ public class CopaAmerica2024 {
                     eliminarCiudad(ciudades);
                     break;
                 case 3:
-                    modificarCiudad(ciudades);
+                    //modificarCiudad(ciudades);
                     break;  
                 default:
                     System.out.println("Ingrese una opcion valida.");
@@ -458,7 +458,7 @@ public class CopaAmerica2024 {
         
         do{
             
-            menuABMClientes();
+            menuABMEquipos();
             eleccion = sc.nextInt();
             switch(eleccion){
                 case 0:
@@ -480,12 +480,12 @@ public class CopaAmerica2024 {
     
     }
     
-    private static void menuABMClientes(){
+    private static void menuABMEquipos(){
         
         System.out.println("0. ATRAS.");
-        System.out.println("1. Agregar un cliente.");  
-        System.out.println("2. Eliminar un cliente.");
-        System.out.println("3. Modificar un cliente.");
+        System.out.println("1. Agregar un Equipo.");  
+        System.out.println("2. Eliminar un Equipo.");
+        System.out.println("3. Modificar un Equipo.");
         
     
     }
@@ -524,12 +524,12 @@ public class CopaAmerica2024 {
 
             if(exito){
                 
-                txt = "Se agrego el cliente: " +eq1.toString()+ " correctamente.";
+                txt = "Se agrego el equipo: " +eq1.toString()+ " correctamente.";
                 System.out.println(txt);
                 registrarMovimiento(txt);
 
             }else{
-                System.out.println("ERROR. No ha sido posible agregar la ciudad.");
+                System.out.println("ERROR. No ha sido posible agregar un Equipo.");
 
             }
         }    
@@ -540,13 +540,13 @@ public class CopaAmerica2024 {
         String txt = "";
         int eleccion;
         String nombre;
-        System.out.println("BAJA DE UNA CIUDAD.");
+        System.out.println("BAJA DE UN EQUIPO.");
         System.out.println("1. CONTINUAR.");
         System.out.println("2. CANCELAR.");
         eleccion = sc.nextInt();
         
         if(eleccion == 1){
-            System.out.println("Ingrese el nombre de la ciudad que desea dar de BAJA.");
+            System.out.println("Ingrese el nombre del Equipo que desea dar de BAJA.");
 
             nombre = sc.next();
 
@@ -554,12 +554,12 @@ public class CopaAmerica2024 {
             
             if(exito){
                 
-                txt = "Ciudad: " +nombre+", eliminada correctamente.";
+                txt = "Equipo: " +nombre+", eliminado correctamente.";
                 System.out.println(txt);
                 registrarMovimiento(txt);   
             }else{
                 
-                System.out.println("ERROR. No ha sido posible eliminar la ciudad.");
+                System.out.println("ERROR. No ha sido posible eliminar el Equipo.");
                 
             }
         }        
@@ -573,7 +573,7 @@ public class CopaAmerica2024 {
         String nomDT;
         char gru;
         int PG,GAF,GEC;
-        System.out.println("MODIFICACION DE UNA CIUDAD.");
+        System.out.println("MODIFICACION DE UN EQUIPO.");
         System.out.println("1. CONTINUAR.");
         System.out.println("2. CANCELAR.");
         eleccion = sc.nextInt();
@@ -586,7 +586,7 @@ public class CopaAmerica2024 {
 
             if(unEquipo != null){
 
-                System.out.println("La ciudad que va a modificar es: \n" +unEquipo.toString()); 
+                System.out.println("El equipo que va a modificar es: \n" +unEquipo.toString()); 
                 System.out.println("1. CONTINUAR.");
                 System.out.println("2. CANCELAR.");
                 eleccion = sc.nextInt();
@@ -609,7 +609,7 @@ public class CopaAmerica2024 {
                     unEquipo.setPuntosGanados(PG);
                     unEquipo.setGolesAFavor(GAF);
                     unEquipo.setGolesEnContra(GEC);
-                    txt = "Los datos de la ciudad: " +unEquipo.toString()+ " han sido modificados.";
+                    txt = "Los datos del equipo: " +unEquipo.toString()+ " han sido modificados.";
                     System.out.println(txt);
                     registrarMovimiento(txt);
                 }else{
@@ -622,14 +622,14 @@ public class CopaAmerica2024 {
     } 
     
     //HashMapeoAMuchos partidos
-     public static void abmSolicitudes(HashMapeoAMuchos partidos){
+     public static void abmPartidos(HashMapeoAMuchos partidos){
         
     Scanner sc = new Scanner(System.in);
         int eleccion;
         
         do{
             
-            menuABMSolicitudes();
+            menuABMPartidos();
             eleccion = sc.nextInt();
             switch(eleccion){
                 case 0:
@@ -651,7 +651,7 @@ public class CopaAmerica2024 {
     
     }
     
-    private static void menuABMSolicitudes(){
+    private static void menuABMPartidos(){
         
         System.out.println("0. ATRAS.");
         System.out.println("1. Agregar un Partido.");  
@@ -664,13 +664,6 @@ public class CopaAmerica2024 {
     
     //ALTAS 
     public static void agregarPartido(HashMapeoAMuchos partidos){
-        /*
-    private String instancia;
-    private String ciudad;
-    private String estadio;
-    private int golesEq1;
-    private int golesEq2;
-        */
         Scanner sc = new Scanner(System.in);
         String txt = "";
         int eleccion,G1,G2;
@@ -764,10 +757,126 @@ public class CopaAmerica2024 {
 
                 }else{
 
-                    System.out.println("ERROR. La solicitud no existe.");
+                    System.out.println("ERROR. El Partido no existe.");
 
                 }
             }
+        }
+    }
+     
+    //MODIFICACIONES   
+    public static void modificarPartido(HashMapeoAMuchos partidos){
+        Scanner sc = new Scanner(System.in);
+         int eleccion,G1,G2;
+        String eq1,eq2,insta,ciu,esta;
+        String txt = "";
+        
+        System.out.println("MODIFICACION DE UNA SOLICITUD.");
+        System.out.println("1. CONTINUAR.");
+        System.out.println("2. CANCELAR.");
+        eleccion = sc.nextInt();
+        
+        if(eleccion == 1){
+        
+            System.out.println("Ingrese el nombre del Equipo 1.");
+            eq1 = sc.next();
+
+            System.out.println("Ingrese el nombre del Equipo 2.");
+            eq2 = sc.next();
+
+            ClavePartido unaClave = new ClavePartido(eq1, eq2);
+
+            String msg = partidos.toStringConClave(unaClave);
+
+            if(msg.equals("ERROR.")){
+
+                System.out.println("La clave ingresada no existe.");
+
+            }else{
+
+                System.out.println("Seleccione la instancia del Partido que desea modificar");
+                System.out.println(msg);
+                insta = sc.next();
+                Partido partidito= new Partido(insta, "", "", 0, 0);
+
+                Partido partidoAModificar = partidos.obtenerDato(unaClave, partidito);
+
+                if(partidoAModificar != null){
+
+                    System.out.println("-Datos de la solicitud a modificar: \n" +partidoAModificar.toString());
+                    System.out.println("1. CONTINUAR.");
+                    System.out.println("2. CANCELAR.");
+                    eleccion = sc.nextInt();
+
+                    if(eleccion == 1){
+
+                        System.out.println("Ingreso de datos para modificar la solicitud:");
+
+                        System.out.println("Ingrese la ciudad.");
+                        ciu = sc.next();
+
+                        System.out.println("Ingrese el estadio.");
+                        esta = sc.next();
+
+                        System.out.println("Ingrese los goles del Equipo 1.");
+                        G1 = sc.nextInt();
+                        
+                        System.out.println("Ingrese los goles del Equipo 2.");
+                        G2 = sc.nextInt();
+
+                        partidoAModificar.setCiudad(ciu);
+                        partidoAModificar.setEstadio(esta);
+                        partidoAModificar.setGolesEq1(G1);
+                        partidoAModificar.setGolesEq2(G2);
+                        
+                        txt = "Partido con: " +eq1+ " y  " +eq2+ " MODIFICADO correctamente.";
+                        System.out.println(txt);
+                        registrarMovimiento(txt);
+                    }else{
+                        System.out.println("OPERACION CANCELADA.");
+                    }    
+                }else{
+                    System.out.println("ERROR. No se pudo modificar el Partido.");
+                }  
+            }
+        }
+    }
+    // 9 - MOSTRAR SISTEMA
+    public static void mostrarSistema(ArbolAVL equipos, HashMapeoAMuchos partidos,Grafo ciudades){
+        Scanner sc = new Scanner(System.in);
+        int eleccion;
+        
+        System.out.println("MOSTRAR EL SISTEMA.");
+        System.out.println("1. CONTINUAR.");
+        System.out.println("2. CANCELAR.");
+        eleccion = sc.nextInt();
+        
+        if(eleccion == 1){
+            System.out.println(mostrarSistemaAux(equipos, partidos,ciudades));
+        }
+    }
+    
+    private static String mostrarSistemaAux(ArbolAVL equipos, HashMapeoAMuchos partidos,Grafo ciudades){
+        String txt = "AVL DE EQUIPOS: \n\n" +
+                equipos.toString() + "\n\n" +
+                "HASH MAPEO A MUCHOS DE PARTIDOS: \n\n" +
+                partidos.toString() + "\n\n" +
+                "GRAFO ETIQUETADO DE CIUDADES: \n\n" +
+                ciudades.toString();
+        return txt;
+
+    }
+    
+    //ESCRIBE EN ARCHIVO DE SALIDA
+    public static void registrarMovimiento(String datosLinea) {
+        try {
+            FileWriter archivoRegistros = new FileWriter("SELECCIONE RUTA", true);
+            try (BufferedWriter bufEscritura = new BufferedWriter(archivoRegistros)) {
+                bufEscritura.write(datosLinea);
+                bufEscritura.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("El registro no ha podido hacerse");
         }
     }
     

@@ -82,10 +82,10 @@ public class Lista {
         cabecera=null;
     }
     
-    public Object recuperar(int pos){
+    public Partido recuperar(int pos){
         Nodo aux=cabecera;
         int reco=1;
-        Object retorno=null;
+        Partido retorno=null;
         int longi=longitud();
         
         if(pos<1 || pos>longi){
