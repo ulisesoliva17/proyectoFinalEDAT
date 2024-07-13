@@ -17,14 +17,13 @@ import java.io.FileWriter;
  // @author Ulises
 public class CopaAmerica2024 {
 
-
     public static void main(String[] args) {
         Scanner sc= new Scanner(System.in);
         ArbolAVL equipos= new ArbolAVL();
         HashMapeoAMuchos partidos= new HashMapeoAMuchos();
         Grafo ciudades= new Grafo();
         
-        String datos = "/Users/ulise/Desktop/BASE-DE-DATOS.txt";
+        String datos = "C:/Users/ulise/OneDrive/Desktop/BASE-DE-DATOS.txt";
         int eleccion = 0;
         
         System.out.println("Presione '1' para realizar la carga inicial");
@@ -51,10 +50,13 @@ public class CopaAmerica2024 {
             String linea;
             //while encargado de cada linea de lectura del txt
             while((linea = bufferLectura.readLine()) != null){
-                //guardamos en un arreglos de String la linea completa, separando cada " ; " 
+                //guardamos en un arreglo de String la linea completa, separando cada " ; " 
                 //es decir, en la pos 0 guardara la letra, luego en  pos1 lo que venga despues de ","
                 //y asi sucesivamente hasta que termine la linea de codigo y salte a la siguiente
                String[] datosLinea = linea.split(";");
+//                for (String elemento : datosLinea) {
+//                    System.out.println(elemento);
+//                }
                 if (datosLinea[0].equals("C")) {
                     //Si es una ciudad esa linea, al metodo cargarCiudad le debo pasar la linea (guardada en el arreglo) y el grafo
                     cargarCiudad(datosLinea, ciudades);
@@ -88,9 +90,6 @@ public class CopaAmerica2024 {
         String origen = datosRuta[1];
         String destino = datosRuta[2];
         double distancia = Double.parseDouble(datosRuta[3]);
-        //No inserto origen y vertices al grafo porque se supone que ya se debe de haber insertado ambos elementos.
-//        ciudades.insertarVertice(origen);
-//        ciudades.insertarVertice(destino);
         ciudades.insertarArco(origen, destino, distancia);
     }
       private static void cargarEquipo(String[] datosEquipo,ArbolAVL equipos){
@@ -250,7 +249,7 @@ public class CopaAmerica2024 {
 
             Ciudad unaCiudad = new Ciudad(nombre, aloDispo, esSede);
 
-            boolean exito = ciudades.eliminarVertice(unaCiudad);
+            boolean exito = ciudades.insertarVertice(unaCiudad);
             
             if(exito){
                 
@@ -278,11 +277,10 @@ public class CopaAmerica2024 {
         
         if(eleccion == 1){
             System.out.println("Ingrese el nombre de la ciudad que desea dar de BAJA.");
-
             nombre = sc.next();
             Ciudad ciu= new Ciudad(nombre, true, true);
-
-            boolean exito = ciudades.eliminarVertice(ciu);
+            Ciudad nueva= ciudades.obtenerDato(ciu);
+            boolean exito = ciudades.eliminarVertice(nueva);
             
             if(exito){
                 

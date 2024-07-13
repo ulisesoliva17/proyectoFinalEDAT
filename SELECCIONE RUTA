@@ -85,3 +85,1739 @@ MODIFICACIONES EN EL TRANSCURSO DE LA EJECUCION:
 Se agrego el cliente: Equipo: Arg correctamente.
 Partido entre: Clave Partido con Eq1:  ARG , y Eq2:  BRA con los datos:  instancia: FG-Ciudad: Catriel-Estadio: aaa- G1: 2- G2: 3
 , insertado correctamente.
+Se ha realizado la carga de datos correctamente. 
+ESTADO INICIAL DE LA BASE DE DATOS: 
+AVL DE EQUIPOS: 
+
+Arbol Vacio
+
+HASH MAPEO A MUCHOS DE PARTIDOS: 
+
+
+
+GRAFO ETIQUETADO DE CIUDADES: 
+
+Origen de la ruta: Boston
+
+
+Origen de la ruta: Washington
+
+
+Origen de la ruta: Denver
+
+
+Origen de la ruta: Seattle
+
+
+Origen de la ruta: Indianapolis
+
+
+Origen de la ruta: San Francisco
+
+
+Origen de la ruta: Charlotte
+
+
+Origen de la ruta: Columbus
+
+
+Origen de la ruta: Fort Worth
+
+
+Origen de la ruta: Jacksonville
+
+
+Origen de la ruta: Austin
+
+
+Origen de la ruta: San Jose
+
+
+Origen de la ruta: Dallas
+
+
+Origen de la ruta: San Diego
+
+
+Origen de la ruta: San Antonio
+
+
+Origen de la ruta: Philadelphia
+
+
+Origen de la ruta: Phoenix
+
+
+Origen de la ruta: Houston
+
+
+Origen de la ruta: Chicago
+
+
+Origen de la ruta: New York
+
+
+
+MODIFICACIONES EN EL TRANSCURSO DE LA EJECUCION: 
+Se ha realizado la carga de datos correctamente. 
+ESTADO INICIAL DE LA BASE DE DATOS: 
+AVL DE EQUIPOS: 
+
+Arbol Vacio
+
+HASH MAPEO A MUCHOS DE PARTIDOS: 
+
+
+
+GRAFO ETIQUETADO DE CIUDADES: 
+
+Origen de la ruta: Boston
+
+
+Origen de la ruta: Washington
+
+
+Origen de la ruta: Denver
+
+
+Origen de la ruta: Seattle
+
+
+Origen de la ruta: Indianapolis
+
+
+Origen de la ruta: San Francisco
+
+
+Origen de la ruta: Charlotte
+
+
+Origen de la ruta: Columbus
+
+
+Origen de la ruta: Fort Worth
+
+
+Origen de la ruta: Jacksonville
+
+
+Origen de la ruta: Austin
+
+
+Origen de la ruta: San Jose
+
+
+Origen de la ruta: Dallas
+
+
+Origen de la ruta: San Diego
+
+
+Origen de la ruta: San Antonio
+
+
+Origen de la ruta: Philadelphia
+
+
+Origen de la ruta: Phoenix
+
+
+Origen de la ruta: Houston
+
+
+Origen de la ruta: Chicago
+
+
+Origen de la ruta: New York
+
+
+
+MODIFICACIONES EN EL TRANSCURSO DE LA EJECUCION: 
+Se ha realizado la carga de datos correctamente. 
+ESTADO INICIAL DE LA BASE DE DATOS: 
+AVL DE EQUIPOS: 
+
+~Nodo(ALT = 4): C.E-->COLOMBIA ; Equipo: COLOMBIA
+  H.I(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL   ||   H.D(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+
+~Nodo(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL
+  H.I(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA   ||   H.D(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+
+~Nodo(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA
+  H.I(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+  H.I(ALT = 0): C.E-->CANADA ; Equipo: CANADA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->CANADA ; Equipo: CANADA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+  H.I(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS   ||   H.D(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+
+~Nodo(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS
+  H.I(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR   ||   H.D(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+
+~Nodo(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR
+  H.I(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+  H.I(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA   ||   H.D(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+
+~Nodo(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+  H.I(ALT = 0): C.E-->PERU ; Equipo: PERU   ||   H.D(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+
+~Nodo(ALT = 0): C.E-->PERU ; Equipo: PERU
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+ H.I: -  H.D: - 
+
+
+
+HASH MAPEO A MUCHOS DE PARTIDOS: 
+
+
+
+GRAFO ETIQUETADO DE CIUDADES: 
+
+Origen de la ruta: Boston
+
+
+Origen de la ruta: Washington
+
+
+Origen de la ruta: Denver
+
+
+Origen de la ruta: Seattle
+
+
+Origen de la ruta: Indianapolis
+
+
+Origen de la ruta: San Francisco
+
+
+Origen de la ruta: Charlotte
+
+
+Origen de la ruta: Columbus
+
+
+Origen de la ruta: Fort Worth
+
+
+Origen de la ruta: Jacksonville
+
+
+Origen de la ruta: Austin
+
+
+Origen de la ruta: San Jose
+
+
+Origen de la ruta: Dallas
+
+
+Origen de la ruta: San Diego
+
+
+Origen de la ruta: San Antonio
+
+
+Origen de la ruta: Philadelphia
+
+
+Origen de la ruta: Phoenix
+
+
+Origen de la ruta: Houston
+
+
+Origen de la ruta: Chicago
+
+
+Origen de la ruta: New York
+
+
+
+MODIFICACIONES EN EL TRANSCURSO DE LA EJECUCION: 
+Se ha realizado la carga de datos correctamente. 
+ESTADO INICIAL DE LA BASE DE DATOS: 
+AVL DE EQUIPOS: 
+
+~Nodo(ALT = 4): C.E-->COLOMBIA ; Equipo: COLOMBIA
+  H.I(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL   ||   H.D(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+
+~Nodo(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL
+  H.I(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA   ||   H.D(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+
+~Nodo(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA
+  H.I(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+  H.I(ALT = 0): C.E-->CANADA ; Equipo: CANADA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->CANADA ; Equipo: CANADA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+  H.I(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS   ||   H.D(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+
+~Nodo(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS
+  H.I(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR   ||   H.D(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+
+~Nodo(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR
+  H.I(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+  H.I(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA   ||   H.D(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+
+~Nodo(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+  H.I(ALT = 0): C.E-->PERU ; Equipo: PERU   ||   H.D(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+
+~Nodo(ALT = 0): C.E-->PERU ; Equipo: PERU
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+ H.I: -  H.D: - 
+
+
+
+HASH MAPEO A MUCHOS DE PARTIDOS: 
+
+
+
+GRAFO ETIQUETADO DE CIUDADES: 
+
+Origen de la ruta: Boston
+
+
+Origen de la ruta: Washington
+
+
+Origen de la ruta: Denver
+
+
+Origen de la ruta: Seattle
+
+
+Origen de la ruta: Indianapolis
+
+
+Origen de la ruta: San Francisco
+
+
+Origen de la ruta: Charlotte
+
+
+Origen de la ruta: Columbus
+
+
+Origen de la ruta: Fort Worth
+
+
+Origen de la ruta: Jacksonville
+
+
+Origen de la ruta: Austin
+
+
+Origen de la ruta: San Jose
+
+
+Origen de la ruta: Dallas
+
+
+Origen de la ruta: San Diego
+
+
+Origen de la ruta: San Antonio
+
+
+Origen de la ruta: Philadelphia
+
+
+Origen de la ruta: Phoenix
+
+
+Origen de la ruta: Houston
+
+
+Origen de la ruta: Chicago
+
+
+Origen de la ruta: New York
+
+
+
+MODIFICACIONES EN EL TRANSCURSO DE LA EJECUCION: 
+Se ha realizado la carga de datos correctamente. 
+ESTADO INICIAL DE LA BASE DE DATOS: 
+AVL DE EQUIPOS: 
+
+~Nodo(ALT = 4): C.E-->COLOMBIA ; Equipo: COLOMBIA
+  H.I(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL   ||   H.D(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+
+~Nodo(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL
+  H.I(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA   ||   H.D(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+
+~Nodo(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA
+  H.I(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+  H.I(ALT = 0): C.E-->CANADA ; Equipo: CANADA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->CANADA ; Equipo: CANADA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+  H.I(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS   ||   H.D(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+
+~Nodo(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS
+  H.I(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR   ||   H.D(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+
+~Nodo(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR
+  H.I(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+  H.I(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA   ||   H.D(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+
+~Nodo(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+  H.I(ALT = 0): C.E-->PERU ; Equipo: PERU   ||   H.D(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+
+~Nodo(ALT = 0): C.E-->PERU ; Equipo: PERU
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+ H.I: -  H.D: - 
+
+
+
+HASH MAPEO A MUCHOS DE PARTIDOS: 
+
+
+
+GRAFO ETIQUETADO DE CIUDADES: 
+
+Origen de la ruta: Boston
+
+
+Origen de la ruta: Washington
+
+
+Origen de la ruta: Denver
+
+
+Origen de la ruta: Seattle
+
+
+Origen de la ruta: Indianapolis
+
+
+Origen de la ruta: San Francisco
+
+
+Origen de la ruta: Charlotte
+
+
+Origen de la ruta: Columbus
+
+
+Origen de la ruta: Fort Worth
+
+
+Origen de la ruta: Jacksonville
+
+
+Origen de la ruta: Austin
+
+
+Origen de la ruta: San Jose
+
+
+Origen de la ruta: Dallas
+
+
+Origen de la ruta: San Diego
+
+
+Origen de la ruta: San Antonio
+
+
+Origen de la ruta: Philadelphia
+
+
+Origen de la ruta: Phoenix
+
+
+Origen de la ruta: Houston
+
+
+Origen de la ruta: Chicago
+
+
+Origen de la ruta: New York
+
+
+
+MODIFICACIONES EN EL TRANSCURSO DE LA EJECUCION: 
+Se ha realizado la carga de datos correctamente. 
+ESTADO INICIAL DE LA BASE DE DATOS: 
+AVL DE EQUIPOS: 
+
+~Nodo(ALT = 4): C.E-->COLOMBIA ; Equipo: COLOMBIA
+  H.I(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL   ||   H.D(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+
+~Nodo(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL
+  H.I(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA   ||   H.D(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+
+~Nodo(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA
+  H.I(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+  H.I(ALT = 0): C.E-->CANADA ; Equipo: CANADA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->CANADA ; Equipo: CANADA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+  H.I(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS   ||   H.D(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+
+~Nodo(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS
+  H.I(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR   ||   H.D(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+
+~Nodo(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR
+  H.I(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+  H.I(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA   ||   H.D(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+
+~Nodo(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+  H.I(ALT = 0): C.E-->PERU ; Equipo: PERU   ||   H.D(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+
+~Nodo(ALT = 0): C.E-->PERU ; Equipo: PERU
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+ H.I: -  H.D: - 
+
+
+
+HASH MAPEO A MUCHOS DE PARTIDOS: 
+
+
+
+GRAFO ETIQUETADO DE CIUDADES: 
+
+Origen de la ruta: Boston
+
+
+Origen de la ruta: Washington
+
+
+Origen de la ruta: Denver
+
+
+Origen de la ruta: Seattle
+
+
+Origen de la ruta: Indianapolis
+
+
+Origen de la ruta: San Francisco
+
+
+Origen de la ruta: Charlotte
+
+
+Origen de la ruta: Columbus
+
+
+Origen de la ruta: Fort Worth
+
+
+Origen de la ruta: Jacksonville
+
+
+Origen de la ruta: Austin
+
+
+Origen de la ruta: San Jose
+
+
+Origen de la ruta: Dallas
+
+
+Origen de la ruta: San Diego
+
+
+Origen de la ruta: San Antonio
+
+
+Origen de la ruta: Philadelphia
+
+
+Origen de la ruta: Phoenix
+
+
+Origen de la ruta: Houston
+
+
+Origen de la ruta: Chicago
+
+
+Origen de la ruta: New York
+
+
+
+MODIFICACIONES EN EL TRANSCURSO DE LA EJECUCION: 
+Se agrego la ciudad: Catriel correctamente.
+Se ha realizado la carga de datos correctamente. 
+ESTADO INICIAL DE LA BASE DE DATOS: 
+AVL DE EQUIPOS: 
+
+~Nodo(ALT = 4): C.E-->COLOMBIA ; Equipo: COLOMBIA
+  H.I(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL   ||   H.D(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+
+~Nodo(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL
+  H.I(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA   ||   H.D(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+
+~Nodo(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA
+  H.I(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+  H.I(ALT = 0): C.E-->CANADA ; Equipo: CANADA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->CANADA ; Equipo: CANADA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+  H.I(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS   ||   H.D(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+
+~Nodo(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS
+  H.I(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR   ||   H.D(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+
+~Nodo(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR
+  H.I(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+  H.I(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA   ||   H.D(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+
+~Nodo(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+  H.I(ALT = 0): C.E-->PERU ; Equipo: PERU   ||   H.D(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+
+~Nodo(ALT = 0): C.E-->PERU ; Equipo: PERU
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+ H.I: -  H.D: - 
+
+
+
+HASH MAPEO A MUCHOS DE PARTIDOS: 
+
+
+
+GRAFO ETIQUETADO DE CIUDADES: 
+
+Origen de la ruta: Boston
+
+
+Origen de la ruta: Washington
+
+
+Origen de la ruta: Denver
+
+
+Origen de la ruta: Seattle
+
+
+Origen de la ruta: Indianapolis
+
+
+Origen de la ruta: San Francisco
+
+
+Origen de la ruta: Charlotte
+
+
+Origen de la ruta: Columbus
+
+
+Origen de la ruta: Fort Worth
+
+
+Origen de la ruta: Jacksonville
+
+
+Origen de la ruta: Austin
+
+
+Origen de la ruta: San Jose
+
+
+Origen de la ruta: Dallas
+
+
+Origen de la ruta: San Diego
+
+
+Origen de la ruta: San Antonio
+
+
+Origen de la ruta: Philadelphia
+
+
+Origen de la ruta: Phoenix
+
+
+Origen de la ruta: Houston
+
+
+Origen de la ruta: Chicago
+
+
+Origen de la ruta: New York
+
+
+
+MODIFICACIONES EN EL TRANSCURSO DE LA EJECUCION: 
+Se ha realizado la carga de datos correctamente. 
+ESTADO INICIAL DE LA BASE DE DATOS: 
+AVL DE EQUIPOS: 
+
+~Nodo(ALT = 4): C.E-->COLOMBIA ; Equipo: COLOMBIA
+  H.I(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL   ||   H.D(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+
+~Nodo(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL
+  H.I(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA   ||   H.D(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+
+~Nodo(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA
+  H.I(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+  H.I(ALT = 0): C.E-->CANADA ; Equipo: CANADA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->CANADA ; Equipo: CANADA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+  H.I(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS   ||   H.D(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+
+~Nodo(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS
+  H.I(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR   ||   H.D(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+
+~Nodo(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR
+  H.I(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+  H.I(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA   ||   H.D(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+
+~Nodo(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+  H.I(ALT = 0): C.E-->PERU ; Equipo: PERU   ||   H.D(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+
+~Nodo(ALT = 0): C.E-->PERU ; Equipo: PERU
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+ H.I: -  H.D: - 
+
+
+
+HASH MAPEO A MUCHOS DE PARTIDOS: 
+
+
+
+GRAFO ETIQUETADO DE CIUDADES: 
+
+Origen de la ruta: Boston
+
+
+Origen de la ruta: Washington
+
+
+Origen de la ruta: Denver
+
+
+Origen de la ruta: Seattle
+
+
+Origen de la ruta: Indianapolis
+
+
+Origen de la ruta: San Francisco
+
+
+Origen de la ruta: Charlotte
+
+
+Origen de la ruta: Columbus
+
+
+Origen de la ruta: Fort Worth
+
+
+Origen de la ruta: Jacksonville
+
+
+Origen de la ruta: Austin
+
+
+Origen de la ruta: San Jose
+
+
+Origen de la ruta: Dallas
+
+
+Origen de la ruta: San Diego
+
+
+Origen de la ruta: San Antonio
+
+
+Origen de la ruta: Philadelphia
+
+
+Origen de la ruta: Phoenix
+
+
+Origen de la ruta: Houston
+
+
+Origen de la ruta: Chicago
+
+
+Origen de la ruta: New York
+
+
+
+MODIFICACIONES EN EL TRANSCURSO DE LA EJECUCION: 
+Se ha realizado la carga de datos correctamente. 
+ESTADO INICIAL DE LA BASE DE DATOS: 
+AVL DE EQUIPOS: 
+
+~Nodo(ALT = 4): C.E-->COLOMBIA ; Equipo: COLOMBIA
+  H.I(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL   ||   H.D(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+
+~Nodo(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL
+  H.I(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA   ||   H.D(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+
+~Nodo(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA
+  H.I(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+  H.I(ALT = 0): C.E-->CANADA ; Equipo: CANADA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->CANADA ; Equipo: CANADA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+  H.I(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS   ||   H.D(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+
+~Nodo(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS
+  H.I(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR   ||   H.D(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+
+~Nodo(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR
+  H.I(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+  H.I(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA   ||   H.D(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+
+~Nodo(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+  H.I(ALT = 0): C.E-->PERU ; Equipo: PERU   ||   H.D(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+
+~Nodo(ALT = 0): C.E-->PERU ; Equipo: PERU
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+ H.I: -  H.D: - 
+
+
+
+HASH MAPEO A MUCHOS DE PARTIDOS: 
+
+
+
+GRAFO ETIQUETADO DE CIUDADES: 
+
+Origen de la ruta: Boston
+
+
+Origen de la ruta: Washington
+
+
+Origen de la ruta: Denver
+
+
+Origen de la ruta: Seattle
+
+
+Origen de la ruta: Indianapolis
+
+
+Origen de la ruta: San Francisco
+
+
+Origen de la ruta: Charlotte
+
+
+Origen de la ruta: Columbus
+
+
+Origen de la ruta: Fort Worth
+
+
+Origen de la ruta: Jacksonville
+
+
+Origen de la ruta: Austin
+
+
+Origen de la ruta: San Jose
+
+
+Origen de la ruta: Dallas
+
+
+Origen de la ruta: San Diego
+
+
+Origen de la ruta: San Antonio
+
+
+Origen de la ruta: Philadelphia
+
+
+Origen de la ruta: Phoenix
+
+
+Origen de la ruta: Houston
+
+
+Origen de la ruta: Chicago
+
+
+Origen de la ruta: New York
+
+
+
+MODIFICACIONES EN EL TRANSCURSO DE LA EJECUCION: 
+Se ha realizado la carga de datos correctamente. 
+ESTADO INICIAL DE LA BASE DE DATOS: 
+AVL DE EQUIPOS: 
+
+~Nodo(ALT = 4): C.E-->COLOMBIA ; Equipo: COLOMBIA
+  H.I(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL   ||   H.D(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+
+~Nodo(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL
+  H.I(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA   ||   H.D(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+
+~Nodo(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA
+  H.I(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+  H.I(ALT = 0): C.E-->CANADA ; Equipo: CANADA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->CANADA ; Equipo: CANADA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+  H.I(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS   ||   H.D(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+
+~Nodo(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS
+  H.I(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR   ||   H.D(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+
+~Nodo(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR
+  H.I(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+  H.I(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA   ||   H.D(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+
+~Nodo(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+  H.I(ALT = 0): C.E-->PERU ; Equipo: PERU   ||   H.D(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+
+~Nodo(ALT = 0): C.E-->PERU ; Equipo: PERU
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+ H.I: -  H.D: - 
+
+
+
+HASH MAPEO A MUCHOS DE PARTIDOS: 
+
+
+
+GRAFO ETIQUETADO DE CIUDADES: 
+
+Origen de la ruta: Boston
+
+
+Origen de la ruta: Washington
+
+
+Origen de la ruta: Denver
+
+
+Origen de la ruta: Seattle
+
+
+Origen de la ruta: Indianapolis
+
+
+Origen de la ruta: San Francisco
+
+
+Origen de la ruta: Charlotte
+
+
+Origen de la ruta: Columbus
+
+
+Origen de la ruta: Fort Worth
+
+
+Origen de la ruta: Jacksonville
+
+
+Origen de la ruta: Austin
+
+
+Origen de la ruta: San Jose
+
+
+Origen de la ruta: Dallas
+
+
+Origen de la ruta: San Diego
+
+
+Origen de la ruta: San Antonio
+
+
+Origen de la ruta: Philadelphia
+
+
+Origen de la ruta: Phoenix
+
+
+Origen de la ruta: Houston
+
+
+Origen de la ruta: Chicago
+
+
+Origen de la ruta: New York
+
+
+
+MODIFICACIONES EN EL TRANSCURSO DE LA EJECUCION: 
+Se ha realizado la carga de datos correctamente. 
+ESTADO INICIAL DE LA BASE DE DATOS: 
+AVL DE EQUIPOS: 
+
+~Nodo(ALT = 4): C.E-->COLOMBIA ; Equipo: COLOMBIA
+  H.I(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL   ||   H.D(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+
+~Nodo(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL
+  H.I(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA   ||   H.D(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+
+~Nodo(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA
+  H.I(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+  H.I(ALT = 0): C.E-->CANADA ; Equipo: CANADA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->CANADA ; Equipo: CANADA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+  H.I(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS   ||   H.D(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+
+~Nodo(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS
+  H.I(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR   ||   H.D(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+
+~Nodo(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR
+  H.I(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+  H.I(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA   ||   H.D(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+
+~Nodo(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+  H.I(ALT = 0): C.E-->PERU ; Equipo: PERU   ||   H.D(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+
+~Nodo(ALT = 0): C.E-->PERU ; Equipo: PERU
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+ H.I: -  H.D: - 
+
+
+
+HASH MAPEO A MUCHOS DE PARTIDOS: 
+
+
+
+GRAFO ETIQUETADO DE CIUDADES: 
+
+Origen de la ruta: Boston
+
+
+Origen de la ruta: Washington
+
+
+Origen de la ruta: Denver
+
+
+Origen de la ruta: Seattle
+
+
+Origen de la ruta: Indianapolis
+
+
+Origen de la ruta: San Francisco
+
+
+Origen de la ruta: Charlotte
+
+
+Origen de la ruta: Columbus
+
+
+Origen de la ruta: Fort Worth
+
+
+Origen de la ruta: Jacksonville
+
+
+Origen de la ruta: Austin
+
+
+Origen de la ruta: San Jose
+
+
+Origen de la ruta: Dallas
+
+
+Origen de la ruta: San Diego
+
+
+Origen de la ruta: San Antonio
+
+
+Origen de la ruta: Philadelphia
+
+
+Origen de la ruta: Phoenix
+
+
+Origen de la ruta: Houston
+
+
+Origen de la ruta: Chicago
+
+
+Origen de la ruta: New York
+
+
+
+MODIFICACIONES EN EL TRANSCURSO DE LA EJECUCION: 
+Se ha realizado la carga de datos correctamente. 
+ESTADO INICIAL DE LA BASE DE DATOS: 
+AVL DE EQUIPOS: 
+
+~Nodo(ALT = 4): C.E-->COLOMBIA ; Equipo: COLOMBIA
+  H.I(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL   ||   H.D(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+
+~Nodo(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL
+  H.I(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA   ||   H.D(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+
+~Nodo(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA
+  H.I(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+  H.I(ALT = 0): C.E-->CANADA ; Equipo: CANADA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->CANADA ; Equipo: CANADA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+  H.I(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS   ||   H.D(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+
+~Nodo(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS
+  H.I(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR   ||   H.D(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+
+~Nodo(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR
+  H.I(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+  H.I(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA   ||   H.D(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+
+~Nodo(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+  H.I(ALT = 0): C.E-->PERU ; Equipo: PERU   ||   H.D(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+
+~Nodo(ALT = 0): C.E-->PERU ; Equipo: PERU
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+ H.I: -  H.D: - 
+
+
+
+HASH MAPEO A MUCHOS DE PARTIDOS: 
+
+
+
+GRAFO ETIQUETADO DE CIUDADES: 
+
+Origen de la ruta: Boston
+
+
+Origen de la ruta: Washington
+
+
+Origen de la ruta: Denver
+
+
+Origen de la ruta: Seattle
+
+
+Origen de la ruta: Indianapolis
+
+
+Origen de la ruta: San Francisco
+
+
+Origen de la ruta: Charlotte
+
+
+Origen de la ruta: Columbus
+
+
+Origen de la ruta: Fort Worth
+
+
+Origen de la ruta: Jacksonville
+
+
+Origen de la ruta: Austin
+
+
+Origen de la ruta: San Jose
+
+
+Origen de la ruta: Dallas
+
+
+Origen de la ruta: San Diego
+
+
+Origen de la ruta: San Antonio
+
+
+Origen de la ruta: Philadelphia
+
+
+Origen de la ruta: Phoenix
+
+
+Origen de la ruta: Houston
+
+
+Origen de la ruta: Chicago
+
+
+Origen de la ruta: New York
+
+
+
+MODIFICACIONES EN EL TRANSCURSO DE LA EJECUCION: 
+Se ha realizado la carga de datos correctamente. 
+ESTADO INICIAL DE LA BASE DE DATOS: 
+AVL DE EQUIPOS: 
+
+~Nodo(ALT = 4): C.E-->COLOMBIA ; Equipo: COLOMBIA
+  H.I(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL   ||   H.D(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+
+~Nodo(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL
+  H.I(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA   ||   H.D(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+
+~Nodo(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA
+  H.I(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+  H.I(ALT = 0): C.E-->CANADA ; Equipo: CANADA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->CANADA ; Equipo: CANADA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+  H.I(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS   ||   H.D(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+
+~Nodo(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS
+  H.I(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR   ||   H.D(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+
+~Nodo(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR
+  H.I(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+  H.I(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA   ||   H.D(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+
+~Nodo(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+  H.I(ALT = 0): C.E-->PERU ; Equipo: PERU   ||   H.D(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+
+~Nodo(ALT = 0): C.E-->PERU ; Equipo: PERU
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+ H.I: -  H.D: - 
+
+
+
+HASH MAPEO A MUCHOS DE PARTIDOS: 
+
+
+
+GRAFO ETIQUETADO DE CIUDADES: 
+
+Origen de la ruta: Boston
+
+
+Origen de la ruta: Washington
+
+
+Origen de la ruta: Denver
+
+
+Origen de la ruta: Seattle
+
+
+Origen de la ruta: Indianapolis
+
+
+Origen de la ruta: San Francisco
+
+
+Origen de la ruta: Charlotte
+
+
+Origen de la ruta: Columbus
+
+
+Origen de la ruta: Fort Worth
+
+
+Origen de la ruta: Jacksonville
+
+
+Origen de la ruta: Austin
+
+
+Origen de la ruta: San Jose
+
+
+Origen de la ruta: Dallas
+
+
+Origen de la ruta: San Diego
+
+
+Origen de la ruta: San Antonio
+
+
+Origen de la ruta: Philadelphia
+
+
+Origen de la ruta: Phoenix
+
+
+Origen de la ruta: Houston
+
+
+Origen de la ruta: Chicago
+
+
+Origen de la ruta: New York
+
+
+
+MODIFICACIONES EN EL TRANSCURSO DE LA EJECUCION: 
+Se ha realizado la carga de datos correctamente. 
+ESTADO INICIAL DE LA BASE DE DATOS: 
+AVL DE EQUIPOS: 
+
+~Nodo(ALT = 4): C.E-->COLOMBIA ; Equipo: COLOMBIA
+  H.I(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL   ||   H.D(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+
+~Nodo(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL
+  H.I(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA   ||   H.D(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+
+~Nodo(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA
+  H.I(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+  H.I(ALT = 0): C.E-->CANADA ; Equipo: CANADA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->CANADA ; Equipo: CANADA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+  H.I(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS   ||   H.D(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+
+~Nodo(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS
+  H.I(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR   ||   H.D(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+
+~Nodo(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR
+  H.I(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+  H.I(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA   ||   H.D(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+
+~Nodo(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+  H.I(ALT = 0): C.E-->PERU ; Equipo: PERU   ||   H.D(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+
+~Nodo(ALT = 0): C.E-->PERU ; Equipo: PERU
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+ H.I: -  H.D: - 
+
+
+
+HASH MAPEO A MUCHOS DE PARTIDOS: 
+
+
+
+GRAFO ETIQUETADO DE CIUDADES: 
+
+Origen de la ruta: Boston
+
+
+Origen de la ruta: Washington
+
+
+Origen de la ruta: Denver
+
+
+Origen de la ruta: Seattle
+
+
+Origen de la ruta: Indianapolis
+
+
+Origen de la ruta: San Francisco
+
+
+Origen de la ruta: Charlotte
+
+
+Origen de la ruta: Columbus
+
+
+Origen de la ruta: Fort Worth
+
+
+Origen de la ruta: Jacksonville
+
+
+Origen de la ruta: Austin
+
+
+Origen de la ruta: San Jose
+
+
+Origen de la ruta: Dallas
+
+
+Origen de la ruta: San Diego
+
+
+Origen de la ruta: San Antonio
+
+
+Origen de la ruta: Philadelphia
+
+
+Origen de la ruta: Phoenix
+
+
+Origen de la ruta: Houston
+
+
+Origen de la ruta: Chicago
+
+
+Origen de la ruta: New York
+
+
+
+MODIFICACIONES EN EL TRANSCURSO DE LA EJECUCION: 
+Se ha realizado la carga de datos correctamente. 
+ESTADO INICIAL DE LA BASE DE DATOS: 
+AVL DE EQUIPOS: 
+
+~Nodo(ALT = 4): C.E-->COLOMBIA ; Equipo: COLOMBIA
+  H.I(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL   ||   H.D(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+
+~Nodo(ALT = 2): C.E-->BRASIL ; Equipo: BRASIL
+  H.I(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA   ||   H.D(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+
+~Nodo(ALT = 1): C.E-->BOLIVIA ; Equipo: BOLIVIA
+  H.I(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->ARGENTINA ; Equipo: ARGENTINA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->CHILE ; Equipo: CHILE
+  H.I(ALT = 0): C.E-->CANADA ; Equipo: CANADA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->CANADA ; Equipo: CANADA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 3): C.E-->PARAGUAY ; Equipo: PARAGUAY
+  H.I(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS   ||   H.D(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+
+~Nodo(ALT = 2): C.E-->ESTADOS UNIDOS ; Equipo: ESTADOS UNIDOS
+  H.I(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR   ||   H.D(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+
+~Nodo(ALT = 1): C.E-->ECUADOR ; Equipo: ECUADOR
+  H.I(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA   ||  H.D: - 
+
+~Nodo(ALT = 0): C.E-->COSTA RICA ; Equipo: COSTA RICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->MEXICO ; Equipo: MEXICO
+  H.I(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA   ||   H.D(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+
+~Nodo(ALT = 0): C.E-->JAMAICA ; Equipo: JAMAICA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->PANAMA ; Equipo: PANAMA
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 1): C.E-->URUGUAY ; Equipo: URUGUAY
+  H.I(ALT = 0): C.E-->PERU ; Equipo: PERU   ||   H.D(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+
+~Nodo(ALT = 0): C.E-->PERU ; Equipo: PERU
+ H.I: -  H.D: - 
+
+~Nodo(ALT = 0): C.E-->VENEZUELA ; Equipo: VENEZUELA
+ H.I: -  H.D: - 
+
+
+
+HASH MAPEO A MUCHOS DE PARTIDOS: 
+
+
+
+GRAFO ETIQUETADO DE CIUDADES: 
+
+Origen de la ruta: Boston
+
+
+Origen de la ruta: Washington
+
+
+Origen de la ruta: Denver
+
+
+Origen de la ruta: Seattle
+
+
+Origen de la ruta: Indianapolis
+
+
+Origen de la ruta: San Francisco
+
+
+Origen de la ruta: Charlotte
+
+
+Origen de la ruta: Columbus
+
+
+Origen de la ruta: Fort Worth
+
+
+Origen de la ruta: Jacksonville
+
+
+Origen de la ruta: Austin
+
+
+Origen de la ruta: San Jose
+
+
+Origen de la ruta: Dallas
+
+
+Origen de la ruta: San Diego
+
+
+Origen de la ruta: San Antonio
+
+
+Origen de la ruta: Philadelphia
+
+
+Origen de la ruta: Phoenix
+
+
+Origen de la ruta: Houston
+
+
+Origen de la ruta: Chicago
+
+
+Origen de la ruta: New York
+
+
+
+MODIFICACIONES EN EL TRANSCURSO DE LA EJECUCION: 
+Ciudad: Dallas, eliminada correctamente.

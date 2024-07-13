@@ -1,5 +1,7 @@
 package GrafoCiudades;
 
+import TDAS.Ciudad;
+
 /**
  *
  * @author ulise
@@ -12,7 +14,7 @@ public class Grafo {
         inicio = null;
     }
 
-    public boolean insertarVertice(Object nuevoVertice) {
+    public boolean insertarVertice(Ciudad nuevoVertice) {
         boolean exito = false;
         NodoVert aux = this.ubicarVertice(nuevoVertice);
         //Si aux es null, significa que no existe ese vertice.
@@ -185,6 +187,26 @@ public class Grafo {
         }
 
         return rta;
+    }
+    public Ciudad obtenerDato(Ciudad otraCiudad){
+        boolean rta = false;
+        NodoVert aux = inicio;
+        Ciudad retorno=null;
+        if (aux.getElem().equals(otraCiudad)) {
+            rta=true;
+            retorno= aux.getElem();
+        } else {
+            aux = aux.getSigVertice();
+            while (!rta && aux != null) {
+                if (aux.getElem().equals(otraCiudad)) {
+                    rta=true;
+                    retorno=aux.getElem();
+                } else {
+                    aux = aux.getSigVertice();
+                }
+            }
+        }
+        return retorno;
     }
 
     public boolean eliminarVertice(Object ori) {
