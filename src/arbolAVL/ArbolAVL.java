@@ -1,5 +1,5 @@
 package arbolAVL;
-import TDAS.Equipo;
+import Lineales.Lista;
 
 /**
  *
@@ -94,31 +94,31 @@ public class ArbolAVL {
     }
     //------------------------------------------------------------------------------------------------
 
-    public boolean insertar(Comparable elem,Equipo equi) {
+    public boolean insertar(Comparable elem) {
         boolean exito = true;
         if (raiz == null) {
-            raiz = new NodoAVL(elem, equi,null, null);
+            raiz = new NodoAVL(elem,null, null);
         } else {
-            exito = insertarAux(raiz, elem,equi);
+            exito = insertarAux(raiz, elem);
         }
         return exito;
     }
 
-    private boolean insertarAux(NodoAVL aux, Comparable elem,Equipo equi) {
+    private boolean insertarAux(NodoAVL aux, Comparable elem) {
         boolean rta = true;
         if ((elem.compareTo(aux.getElem())) == 0) {
             rta = false;
         } else if ((elem.compareTo(aux.getElem())) < 0) {
             if (aux.getIzquierdo() != null) {
-                rta = insertarAux(aux.getIzquierdo(), elem,equi);
+                rta = insertarAux(aux.getIzquierdo(), elem);
             } else {
-                aux.setIzquierdo(new NodoAVL(elem,equi, null, null));
+                aux.setIzquierdo(new NodoAVL(elem, null, null));
             }
         } else {
             if (aux.getDerecho() != null) {
-                rta = insertarAux(aux.getDerecho(), elem,equi);
+                rta = insertarAux(aux.getDerecho(), elem);
             } else {
-                aux.setDerecho(new NodoAVL(elem,equi, null, null));
+                aux.setDerecho(new NodoAVL(elem, null, null));
             }
         }
         if (rta) {
@@ -159,12 +159,14 @@ public class ArbolAVL {
 
     private boolean eliminarAux(NodoAVL hijo, NodoAVL padre, Comparable elemento) {
         boolean exito = false;
-        if (hijo != null) {
-            if ((elemento.compareTo(hijo.getElem())) == 0) {
+        System.out.println("entra el eliminarAux con hijo: "+ hijo.getElem()+ " buscando al "
+        +"elemento "+elemento.toString());
+        if (hijo != null && !exito) {
+            if ((elemento.compareTo(hijo.getElem())) == 0 && !exito) {
 
                 if (hijo.getIzquierdo() == null && hijo.getDerecho() == null) {
                     //son Hojas
-                    eliminarHoja(hijo, padre, elemento);
+                    eliminarHoja(padre, elemento);
                     exito = true;
 
                 } else if ((hijo.getIzquierdo() != null && hijo.getDerecho() == null) || (hijo.getIzquierdo() == null && hijo.getDerecho() != null)) {
@@ -188,11 +190,11 @@ public class ArbolAVL {
             } else {
                 //Llamo con el hijo izquierdo, y si es el que busco, entonces el padre es el mismo nodo en el que ahora estoy parado
                 if (elemento.compareTo(hijo.getElem()) < 0) {
-                    eliminarAux(hijo.getIzquierdo(), hijo, elemento);
+                    exito=eliminarAux(hijo.getIzquierdo(), hijo, elemento);
                 }
                 //LLamo con el derecho y sucede lo mismo, si es el hijo derecho el que busco, entonces el padre es el nodo en el que ahora estoy parado.
                 if (elemento.compareTo(hijo.getElem()) > 0) {
-                    eliminarAux(hijo.getDerecho(), hijo, elemento);
+                    exito=eliminarAux(hijo.getDerecho(), hijo, elemento);
                 }
             }
             if (exito) {
@@ -221,16 +223,29 @@ public class ArbolAVL {
     //-----------------------------------------------------------------------------------------------------------------------------------------------
 
     //Eliminar: Caso 1, donde el nodo es Hoja
-    private void eliminarHoja(NodoAVL hijo, NodoAVL padre, Comparable buscado) {
-        if (padre != null) {
-            if (padre.getDerecho().getElem().compareTo(buscado) == 0 && hijo.getDerecho() == null && hijo.getIzquierdo() == null) {
-                padre.setDerecho(null);
-            } else if (padre.getIzquierdo().getElem().compareTo(buscado) == 0 && hijo.getDerecho() == null && hijo.getIzquierdo() == null) {
-                padre.setIzquierdo(null);
+
+    private void eliminarHoja(NodoAVL padre, Comparable elem){
+        boolean rta=false;
+        //si no tiene hijos
+        if(padre == null){
+            //caso especial si el padre es nulo (raiz)
+            this.raiz = null;
+        }else{
+            if(padre.getIzquierdo()!=null){
+                if(padre.getIzquierdo().getElem().compareTo(elem) == 0){
+                    //si n es el HI de padre
+                    rta=true;
+                    padre.setIzquierdo(null);
+                }
             }
-        } else {
-            raiz = null;
+            if(padre.getDerecho()!=null && !rta){
+                if(padre.getDerecho().getElem().compareTo(elem) == 0){
+                    //si n es el HI de padre
+                    padre.setDerecho(null);
+                }
+            } 
         }
+        System.out.println(this.toStringAux(raiz));
     }
 
     //Eliminar: Caso 2, donde el nodo tiene un solo hijo
@@ -256,6 +271,7 @@ public class ArbolAVL {
                 raiz = hijo.getDerecho();
             }
         }
+        System.out.println(this.toStringAux(this.raiz));
     }
 
     private void tieneDosHijos(NodoAVL nodoCandidato, NodoAVL padreCandidato, NodoAVL raiz) {
@@ -277,11 +293,13 @@ public class ArbolAVL {
 
         //actualizacion de altura
         nodoCandidato.recalcularAltura();
+         System.out.println(this.toStringAux(this.raiz));
     }
     private void tienedosHijosCandidatoNulo(NodoAVL n){
         n.setElemento(n.getIzquierdo().getElem());
-        n.setEquipo(n.getIzquierdo().getEquipo());        
+        n.setElemento(n.getIzquierdo().getElem());        
         n.setIzquierdo(n.getIzquierdo().getIzquierdo());
+         System.out.println(this.toStringAux(this.raiz));
     }
 
     //-----------------------------------------------------------------------------------------------
@@ -378,14 +396,14 @@ public class ArbolAVL {
     private String toStringAux(NodoAVL nodo) {
         String mensaje = "";
         if (nodo != null) {
-            mensaje =  "~Nodo(ALT = "+nodo.getAltura()+"): C.E-->"+ nodo.getElem()+ " ; " +nodo.getEquipo().toString();
+            mensaje =  "~Nodo(ALT = "+nodo.getAltura()+"): "+ " ; " +nodo.getElem().toString();
             if (nodo.getIzquierdo() != null) {
-                mensaje += ("\n  H.I(ALT = "+nodo.getIzquierdo().getAltura()+"): C.E-->"+nodo.getIzquierdo().getElem()+ " ; " +nodo.getIzquierdo().getEquipo().toString())+"   || ";
+                mensaje += ("\n  H.I(ALT = "+nodo.getIzquierdo().getAltura()+") "+ " ; " +nodo.getIzquierdo().getElem().toString())+"   || ";
             } else {
                 mensaje += "\n H.I: - " ;
             }
             if (nodo.getDerecho() != null) {
-                mensaje += ("  H.D(ALT = "+nodo.getDerecho().getAltura()+"): C.E-->"+nodo.getDerecho().getElem()+ " ; " +nodo.getDerecho().getEquipo().toString()+"\n\n");
+                mensaje += ("  H.D(ALT = "+nodo.getDerecho().getAltura()+") "+" ; " +nodo.getDerecho().getElem().toString()+"\n\n");
             } else {
                 mensaje += " H.D: - \n\n";
             }
@@ -400,20 +418,19 @@ public class ArbolAVL {
         return mensaje;
     }
      //OBTENER DATO
-    //Nos devuelve el Equipo que estamos buscando
-    public Equipo obtenerDato(Comparable elem){
-        Equipo res = null;
+    public Object obtenerDato(Comparable elem){
+        Object res = null;
         if(this.raiz!=null){
             res = obtenerDatoAux(this.raiz, elem);
         }
         return res;
     }
     
-    private Equipo obtenerDatoAux(NodoAVL n, Comparable elem){
-        Equipo encontrada = null;
+    private Object obtenerDatoAux(NodoAVL n, Comparable elem){
+        Object encontrada = null;
         if(n!=null){
             if(elem.compareTo(n.getElem()) == 0){
-                 encontrada = n.getEquipo();
+                 encontrada = n.getElem();
             }else{
                 if(elem.compareTo(n.getElem()) < 0){
                     encontrada = obtenerDatoAux(n.getIzquierdo(),elem);
@@ -424,6 +441,35 @@ public class ArbolAVL {
             }       
         }   
         return encontrada;
+    }
+        public Lista listarRango(Comparable min, Comparable max) {
+            //Le ingresaran 2 ciudades y se encargara de devolver una lista en el rango entre las ciudades.
+        Lista lis = new Lista();
+        listarRangoAux(raiz, min, max, lis);
+        return lis;
+    }
+
+    private void listarRangoAux(NodoAVL aux, Comparable min, Comparable max, Lista lis) {
+        if (aux != null) {
+            /*Al ingresar dos TDAS ciudades, reescribira y ocupara el compareTo de la Ciudad como tal
+            y NO el de la clase Comparable*/
+
+            //Si el minimo es menor que el elemento donde estoy parado, entonces bajo a izquierda
+            if ((min.compareTo(aux.getElem()) < 0)) {
+                listarRangoAux(aux.getIzquierdo(), min, max, lis);
+            }
+
+            //Si el elemento esta en el rango entre el min y el max, lo inserto en la lista
+            if ((min.compareTo(aux.getElem()) <= 0) && (max.compareTo(aux.getElem()) >= 0)) {
+                lis.insertar(lis.longitud() + 1, aux.getElem());
+            }
+
+            //Si el maximo es mayor que el elemento donde estoy parado, entonces bajo a derecha.
+            if ((max.compareTo(aux.getElem()) > 0)) {
+                listarRangoAux(aux.getDerecho(), min, max, lis);
+            }
+
+        }
     }
     
 }

@@ -1,7 +1,8 @@
 package GrafoCiudades;
 
 import TDAS.Ciudad;
-
+import Lineales.Lista;
+import java.util.HashMap;
 /**
  *
  * @author ulise
@@ -14,7 +15,7 @@ public class Grafo {
         inicio = null;
     }
 
-    public boolean insertarVertice(Ciudad nuevoVertice) {
+    public boolean insertarVertice(Object nuevoVertice) {
         boolean exito = false;
         NodoVert aux = this.ubicarVertice(nuevoVertice);
         //Si aux es null, significa que no existe ese vertice.
@@ -194,13 +195,13 @@ public class Grafo {
         Ciudad retorno=null;
         if (aux.getElem().equals(otraCiudad)) {
             rta=true;
-            retorno= aux.getElem();
+            retorno=(Ciudad) aux.getElem();
         } else {
             aux = aux.getSigVertice();
             while (!rta && aux != null) {
                 if (aux.getElem().equals(otraCiudad)) {
                     rta=true;
-                    retorno=aux.getElem();
+                    retorno=(Ciudad)aux.getElem();
                 } else {
                     aux = aux.getSigVertice();
                 }
@@ -302,7 +303,109 @@ public class Grafo {
         }
         return msj;
     }
+    public boolean existeCamino(Object origen, Object destino) {
+        boolean exito = false;
+        // verifica si ambos vertices existen
+        NodoVert auxO = null;
+        NodoVert auxD = null;
+        NodoVert aux = this.inicio;
+        while ((auxO == null || auxD == null) && aux != null) {
+            if (aux.getElem().equals(origen)) {
+                auxO = aux;
+            }
+            if (aux.getElem().equals(destino)) {
+                auxD = aux;
+            }
+            aux = aux.getSigVertice();
+        }
+        if (auxO != null && auxD != null) {
+        // si ambos vertices existen busca si existe camino entre ambos
+            Lista visitados = new Lista();
+            exito = existeCaminoAux(auxO, destino, visitados);
+        }
+        return exito;
+    }
 
+    private boolean existeCaminoAux(NodoVert n, Object dest, Lista vis) {
+        boolean exito = false;
+        if (n != null) {
+            // si vertice n es el destino: HAY CAMINO!
+            if (n.getElem().equals(dest)) {
+                exito = true;
+            } else {
+                // si no es el destino verifica si hay camino entre n y destino
+                vis.insertar(vis.longitud() + 1,n.getElem());
+                NodoAdy ady = n.getPrimerAdy();
+                while (!exito && ady != null) {
+                    if (vis.localizar(ady.getVertice().getElem()) < 0) {
+                        exito = existeCaminoAux(ady.getVertice(), dest, vis);
+                    }
+                    ady = ady.getSigAdyacente();
+                }
+            }
+        }
+        return exito;
+    }
+    
+    public Lista caminoMasCorto(Object origen, Object destino) {
+        
+        Lista masCorto = new Lista();
+        Lista visitados = new Lista();    
+        NodoVert nodoOrigen = ubicarVertice(origen);
+        if (nodoOrigen != null) {
+            visitados.insertar(1,origen);
+            masCorto = caminoMasCortoAux(nodoOrigen, destino, visitados, masCorto);
+
+        }
+        return masCorto;
+        
+    }
+
+    private Lista caminoMasCortoAux(NodoVert n, Object destino, Lista visitados, Lista masCorto) {
+
+        if (n != null) {
+            
+            //Si el nodo actual es el destino, se guarda una lista con los visitados que son un camino de llegada
+            if (n.getElem().equals(destino)) {
+                
+                masCorto = visitados.clone();
+                
+            } else {
+                    
+                NodoAdy ady = n.getPrimerAdy();
+                while (ady != null) {
+
+                    //si el adyacente aun no fue visitado entonces entra
+                    if (visitados.localizar(ady.getVertice().getElem()) < 0) {
+                        
+                        if (!masCorto.esVacia()) { //si ya encontro un camino(masCorto no es vacia), entonces 
+                                                   //verifica que los nodos visitados no sean mas que los del camino encontrado
+                                                    
+                            if (visitados.longitud() < masCorto.longitud()) {
+                                visitados.insertar(visitados.longitud()+1,ady.getVertice().getElem());
+                                masCorto = caminoMasCortoAux(ady.getVertice(), destino, visitados, masCorto);
+                                //elimina al ultimo visitado para comparar con otros caminos a la vuelta
+                                visitados.eliminar(visitados.longitud());
+                            }
+
+                        } else { //Si la lista es vacia, es la primera iteracion, busca el primer camino a destino
+                            
+                            //inserta el nodo adyacente visitado y llama recursivamente con el mismo
+                            visitados.insertar(visitados.longitud()+1,ady.getVertice().getElem());
+                            masCorto = caminoMasCortoAux(ady.getVertice(), destino, visitados, masCorto);
+                            //elimina al ultimo visitado para comparar con otros caminos a la vuelta
+                            visitados.eliminar(visitados.longitud());
+                            
+                        }
+                    }
+
+                    ady = ady.getSigAdyacente();
+                }
+                
+            }
+        }
+        return masCorto;
+    }
 //    public boolean insertarVertice(Object nuevoVertice) {
 //        NodoVert aux = inicio;
 //        NodoVert anterior = null;

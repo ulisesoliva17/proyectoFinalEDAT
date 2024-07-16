@@ -24,8 +24,9 @@ public class Ciudad implements Comparable {
         return this.nombre.compareTo(otra.nombre);
     }
     
-    public boolean equals(Ciudad otra){
-        return nombre.equals(otra.getNombre());
+    public boolean equals(Object obj){
+        Ciudad otra= (Ciudad) obj;
+        return nombre.equalsIgnoreCase(otra.getNombre().toUpperCase());
     }
     public String getNombre(){
         return nombre;
@@ -33,6 +34,12 @@ public class Ciudad implements Comparable {
     //No debe de existe serNombre ya que es campo clave
     public boolean almaceDispo(){
         return almaceDispo;
+    }
+    public void setAlmaceDispo(boolean dispo){
+        almaceDispo=dispo;
+    }
+    public void esSede(boolean sede){
+        esSedeCiu=sede;
     }
     public boolean esSede(){
         return esSedeCiu;

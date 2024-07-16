@@ -1,5 +1,4 @@
 package arbolAVL;
-import TDAS.Equipo;
 
 /**
  *
@@ -7,14 +6,12 @@ import TDAS.Equipo;
  */
 public class NodoAVL {
     private Comparable elem;
-    private Equipo equipo;
     private int altura;
     NodoAVL izquierdo;
     NodoAVL derecho;
     
-    public NodoAVL (Comparable elemen,Equipo eq,NodoAVL izq,NodoAVL der){
+    public NodoAVL (Comparable elemen,NodoAVL izq,NodoAVL der){
         elem=elemen;
-        equipo=eq;
         altura=0;
         izquierdo=izq;
         derecho=der;
@@ -22,20 +19,12 @@ public class NodoAVL {
     public Comparable getElem(){
         return elem;
     }
-    public Equipo getEquipo(){
-        return equipo;
-    }
-    public void setEquipo(Equipo otro){
-        equipo=otro;
-    }
+
     public void setElemento(Comparable elemen){
         elem=elemen;
     }
     public int getAltura(){
         return altura;
-    }
-    public void setAltura(int alt){
-        altura=alt;
     }
     public NodoAVL getIzquierdo(){
         return izquierdo;
@@ -59,16 +48,18 @@ public class NodoAVL {
          
          //Si es izquierdo es nulo la altura del hijo estara dada por el derecho mas 1.
         if (this.getIzquierdo() == null && this.getDerecho() != null) {
-            this.setAltura(this.getDerecho().getAltura() + 1);
+            altura=this.getDerecho().getAltura() + 1;
         
           //Si es derecho es nulo, la altura del hijo estara dada por el izquierdo mas 1.
         } else if (this.getIzquierdo() != null && this.getDerecho() == null) {
-            this.setAltura(this.getIzquierdo().getAltura() + 1);
+            altura=this.getIzquierdo().getAltura() + 1;
             
-        } else {
+        } else if(this.getIzquierdo() != null && this.getDerecho() != null) {
             //Si los dos hijos son distintos de nulo, entonces la altura se determinara por el de mayor altura mas 1
             int nuevaAlt = Math.max(alturaActual(this.getIzquierdo()), alturaActual(this.getDerecho()));
-            this.setAltura(nuevaAlt + 1);
+            altura=nuevaAlt + 1;
+        }else{
+            altura=0;
         }
     }
 

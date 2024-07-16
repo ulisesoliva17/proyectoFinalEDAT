@@ -18,11 +18,11 @@ public class testAVLEquipos {
         Equipo eq6 = new Equipo("Per", "Scanloni", 'A', 0, 0, 0);
         Equipo eq7 = new Equipo("Col", "Scanloni", 'A', 0, 0, 0);
         ArbolAVL arbolito = new ArbolAVL();
-        arbolito.insertar("Arg", eq1);
-        arbolito.insertar("Bra", eq2);
+        arbolito.insertar(eq1);
+        arbolito.insertar(eq2);
         System.out.println(arbolito.toString());
         System.out.println("-----------------------------------------------------------");
-        arbolito.insertar("Bba", eq1);            
+        arbolito.insertar(eq1);            
         System.out.println(arbolito.toString());
     }
 

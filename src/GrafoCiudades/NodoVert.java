@@ -6,17 +6,17 @@ import TDAS.Ciudad;
  * @author ulise
  */
 public class NodoVert {
-    private Ciudad elem;
+    private Object elem;
     private NodoVert sigVertice;
     private NodoAdy primerAdy;
     
     //Se crea primero el nodo Vertice sin arcos, es decir, sin nodos adyacentes
-    public NodoVert(Ciudad elemen,NodoVert sig){
+    public NodoVert(Object elemen,NodoVert sig){
         elem=elemen;
         sigVertice=sig;
         primerAdy=null;
     }
-    public Ciudad getElem(){
+    public Object getElem(){
         return elem;
     }
     public void setElem(Ciudad elemen){

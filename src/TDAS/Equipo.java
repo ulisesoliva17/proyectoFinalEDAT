@@ -4,7 +4,7 @@ package TDAS;
  *
  * @author ulise
  */
-public class Equipo {
+public class Equipo implements Comparable {
     private String nombre;
     private String nombreDT;
     private char grupo;
@@ -71,13 +71,19 @@ public class Equipo {
     public String toString() {
         return "Equipo: " + nombre;
     }
-    public boolean equals(Equipo otroEquipo){
-        return nombre.equalsIgnoreCase(otroEquipo.getNombre());
+    public String toStringCompleto() {
+        return "Equipo: " + nombre+" - Nombre DT:"+nombreDT+" - Grupo: "+grupo+" - Puntos Ganados: "
+                +puntosGanados+" - Goles a Favor: "+golesAFavor+" - Goles en Contra: "+golesEnContra;
+    }
+    public boolean equals(Object obj){
+        Equipo otroEquipo= (Equipo) obj;
+        return nombre.equalsIgnoreCase(otroEquipo.getNombre().toUpperCase());
     }
     
-    public int compareTo(Equipo otroEquipo) {
+    public int compareTo(Object obj) {
+        Equipo otroEquipo = (Equipo) obj;
         // Comparación basada en el nombre del equipo (orden lexicográfico)
-        return this.nombre.compareTo(otroEquipo.getNombre());
+        return this.nombre.compareTo(otroEquipo.getNombre().toUpperCase());
     }
     
 

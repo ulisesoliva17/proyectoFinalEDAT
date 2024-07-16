@@ -57,7 +57,7 @@ public class Partido {
     }
     
     public String toString(){
-        String msj= " instancia: "+instancia+"-Ciudad: "+ciudad+"-Estadio: "+estadio+"- G1: "+golesEq1+"- G2: "+golesEq2+"\n";
+        String msj= " instancia: "+instancia+" - Ciudad: "+ciudad+" - Estadio: "+estadio+" - G1: "+golesEq1+" - G2: "+golesEq2+"\n";
         return msj;
     }
     //Como el nodo hash ClavePartido tendra como hijos a partidos
