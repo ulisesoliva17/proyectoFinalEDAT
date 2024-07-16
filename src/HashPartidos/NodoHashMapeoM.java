@@ -7,19 +7,19 @@ import TDAS.ClavePartido;
  * @author ulise
  */
 public class NodoHashMapeoM {
-    private ClavePartido clave;
+    private Object elem;
     private Lista partidos;
     private NodoHashMapeoM enlace;
     
-    public NodoHashMapeoM(ClavePartido cla, NodoHashMapeoM enla){
-        clave= cla;
+    public NodoHashMapeoM(Object cla, NodoHashMapeoM enla){
+        elem= cla;
         //Creo la lista vacia ya que se supone que se insertaran partidos a medida que avance la copa.
         partidos = new Lista();
         enlace=enla;
     }
 
-    public ClavePartido getClave() {
-        return clave;
+    public Object getElem() {
+        return elem;
     }
 
     public Lista getPartidos() {

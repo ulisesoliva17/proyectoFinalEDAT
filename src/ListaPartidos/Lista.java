@@ -27,7 +27,7 @@ public class Lista {
     }
     
     
-    public boolean insertar(int pos, Partido nuevoElem){
+    public boolean insertar(int pos, Object nuevoElem){
         boolean exito=true;
         int longi=longitud();
         
@@ -82,10 +82,10 @@ public class Lista {
         cabecera=null;
     }
     
-    public Partido recuperar(int pos){
+    public Object recuperar(int pos){
         Nodo aux=cabecera;
         int reco=1;
-        Partido retorno=null;
+        Object retorno=null;
         int longi=longitud();
         
         if(pos<1 || pos>longi){
@@ -100,7 +100,7 @@ public class Lista {
         return retorno;
     }
     
-    public int localizar(Partido elem){
+    public int localizar(Object elem){
         Nodo aux=cabecera;
         int contador=1;
         while(aux!=null && (!(elem.equals(aux.getElem())))){

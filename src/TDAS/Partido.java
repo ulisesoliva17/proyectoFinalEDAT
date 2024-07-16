@@ -63,7 +63,8 @@ public class Partido {
     //Como el nodo hash ClavePartido tendra como hijos a partidos
     //Para saber el partido exacto que estoy buscando, lo hare mediante la instancia
     //para recorrer los partidos que se disputaron entre arg-chile por ejemplo
-    public boolean equals(Partido otroPartido){
+    public boolean equals(Object obj){
+        Partido otroPartido= (Partido)obj;
         return instancia.equalsIgnoreCase(otroPartido.getInstancia());
     }
 

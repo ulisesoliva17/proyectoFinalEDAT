@@ -754,6 +754,7 @@ public class CopaAmerica2024 {
             G2=sc.nextInt();
             
             ClavePartido clave= new ClavePartido(eq1, eq2);
+            
             Partido parti= new Partido(insta, ciu, esta, G1, G2);
             boolean exito= partidos.insertar(clave, parti);
             if(exito){
@@ -786,9 +787,10 @@ public class CopaAmerica2024 {
             System.out.println("Ingrese el nombre del Equipo 2.");
             eq2=sc.next();
 
-            ClavePartido unaClave = new ClavePartido(eq1, eq2);
+            ClavePartido claveBusqueda= new ClavePartido(eq1, eq2);
+            ClavePartido clave= (ClavePartido) partidos.buscarClave(claveBusqueda);
 
-            String msg = partidos.toStringConClave(unaClave);
+            String msg = partidos.toStringConClave(clave);
 
             if(msg.equals("ERROR.")){
 
@@ -800,9 +802,10 @@ public class CopaAmerica2024 {
                 System.out.println(msg);
 
                 insta = sc.next();
-                Partido aBorrar = new Partido(insta, "", "", 0, 0);
+                Partido partidito= new Partido(insta, "", "", 0, 0);
+                Partido partidoAEliminar = (Partido) partidos.obtenerDato(clave, partidito);
 
-                boolean res = partidos.eliminar(unaClave, aBorrar);
+                boolean res = partidos.eliminar(clave, partidoAEliminar);
 
 
                 if(res){
@@ -839,9 +842,10 @@ public class CopaAmerica2024 {
             System.out.println("Ingrese el nombre del Equipo 2.");
             eq2 = sc.next();
 
-            ClavePartido unaClave = new ClavePartido(eq1, eq2);
+            ClavePartido claveBusqueda= new ClavePartido(eq1, eq2);
+            ClavePartido clave= (ClavePartido) partidos.buscarClave(claveBusqueda);
 
-            String msg = partidos.toStringConClave(unaClave);
+            String msg = partidos.toStringConClave(clave);
 
             if(msg.equals("ERROR.")){
 
@@ -854,7 +858,7 @@ public class CopaAmerica2024 {
                 insta = sc.next();
                 Partido partidito= new Partido(insta, "", "", 0, 0);
 
-                Partido partidoAModificar = partidos.obtenerDato(unaClave, partidito);
+                Partido partidoAModificar = (Partido) partidos.obtenerDato(clave, partidito);
 
                 if(partidoAModificar != null){
 

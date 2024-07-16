@@ -35,7 +35,8 @@ public class ClavePartido {
         return "Clave Partido con Eq1:  "+equipo1+ " , y Eq2:  "+equipo2;
     }
     
-    public boolean equals(ClavePartido otraClave){
+    public boolean equals(Object obj){
+        ClavePartido otraClave= (ClavePartido)obj;
         return equipo1.equalsIgnoreCase(otraClave.equipo1) && equipo2.equalsIgnoreCase(otraClave.equipo2);
     }
 

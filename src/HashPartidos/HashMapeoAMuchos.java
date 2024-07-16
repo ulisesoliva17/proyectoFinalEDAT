@@ -1,7 +1,5 @@
 package HashPartidos;
 
-import TDAS.ClavePartido;
-import TDAS.Partido;
 
 /**
  *
@@ -33,21 +31,21 @@ public class HashMapeoAMuchos {
     }
      //obtener dato
     
-    public Partido obtenerDato(ClavePartido cl, Partido parti){
+    public Object obtenerDato(Object cl, Object parti){
         
         int pos = cl.hashCode();
         NodoHashMapeoM aux = this.hash[pos];
         boolean encontrado = false;
         while (!encontrado && aux != null) {
             
-            if(aux.getClave().equals(cl)){
+            if(aux.getElem().equals(cl)){
                 encontrado = true;
             }else{    
                 aux = aux.getEnlace();
             }
         }
         int posPartido;
-        Partido buscada = null;
+        Object buscada = null;
         
         if(encontrado){
             posPartido = aux.getPartidos().localizar(parti);
@@ -56,8 +54,25 @@ public class HashMapeoAMuchos {
 
         return buscada;
     }
-
-    public int localizar(ClavePartido cl, Partido parti) {
+    public Object buscarClave(Object cl){
+           int pos = cl.hashCode();
+           NodoHashMapeoM aux = hash[pos];
+           Object retorno=null;
+           boolean encontrado=false;
+           while (!encontrado && aux != null) {
+            if (aux.getElem().equals(cl)) {
+                encontrado = true;
+            } else {
+                aux = aux.getEnlace();
+            }
+        }
+           if(aux!=null){
+               retorno =aux.getElem();
+           }
+           return retorno;
+    }
+    
+    public int localizar(Object cl, Object parti) {
         boolean rta = false;
         int posPartido = -1;
         /*Primero verifiquemos si la clavePartido esta en el hash*/
@@ -65,7 +80,7 @@ public class HashMapeoAMuchos {
         boolean encontrado = false;
         NodoHashMapeoM aux = hash[pos];
         while (!encontrado && aux != null) {
-            if (aux.getClave().equals(cl)) {
+            if (aux.getElem().equals(cl)) {
                 encontrado = true;
             } else {
                 aux = aux.getEnlace();
@@ -78,14 +93,14 @@ public class HashMapeoAMuchos {
         return posPartido;
     }
 
-    public boolean insertar(ClavePartido cl, Partido datosPartido) {
+    public boolean insertar(Object cl, Object datosPartido) {
         boolean rta = false;
         /*Primero verifiquemos si la clavePartido esta en el hash*/
         int pos = cl.hashCode();
         boolean encontrado = false;
         NodoHashMapeoM aux = hash[pos];
         while (!encontrado && aux != null) {
-            if (aux.getClave().equals(cl)) {
+            if (aux.getElem().equals(cl)) {
                 encontrado = true;
             } else {
                 aux = aux.getEnlace();
@@ -110,14 +125,14 @@ public class HashMapeoAMuchos {
         return rta;
     }
 
-    public boolean eliminar(ClavePartido cl, Partido parti) {
+    public boolean eliminar(Object cl, Object parti) {
         //Le ingresa la clave y la instancia que se debe de eliminar.
         boolean rta = false;
         int pos = cl.hashCode();
         boolean encontrado = false;
         NodoHashMapeoM aux = hash[pos];
         while (!encontrado && aux != null) {
-            if (aux.getClave().equals(cl)) {
+            if (aux.getElem().equals(cl)) {
                 encontrado = true;
             } else {
                 aux = aux.getEnlace();
@@ -138,14 +153,14 @@ public class HashMapeoAMuchos {
         return rta;
     }
 
-    private void eliminarClavePartido(ClavePartido cl) {
+    private void eliminarClavePartido(Object cl) {
         int pos = cl.hashCode();
         boolean encontrado = false;
         NodoHashMapeoM aux = hash[pos];
         NodoHashMapeoM anterior = null;
         if (aux != null) {
             while (!encontrado && aux != null) {
-                if (aux.getClave().equals(cl)) {
+                if (aux.getElem().equals(cl)) {
                     encontrado = true;
                 } else {
                     anterior = aux;
@@ -153,11 +168,11 @@ public class HashMapeoAMuchos {
                 }
             }
 
-            if (anterior == null && aux.getClave().equals(cl)) {
+            if (anterior == null && aux.getElem().equals(cl)) {
                 //Significa que esta en la posicion 1
                 hash[pos] = hash[pos].getEnlace();
                 cant--;
-            } else if (anterior != null && aux.getClave().equals(cl)) {
+            } else if (anterior != null && aux.getElem().equals(cl)) {
                 anterior.setEnlace(aux.getEnlace());
                 cant--;
             }
@@ -172,7 +187,7 @@ public class HashMapeoAMuchos {
         while (i < this.hash.length) {
             aux = this.hash[i];
             while (aux != null) {
-                msg += "-" + aux.getClave().toString() + "\n";
+                msg += "-" + aux.getElem().toString() + "\n";
                 msg += aux.getPartidos().toString() + "\n";
                 System.out.println("");
                 aux = aux.getEnlace();
@@ -182,7 +197,7 @@ public class HashMapeoAMuchos {
         return msg;
     }
 
-    public String toStringConClave(ClavePartido cl) {
+    public String toStringConClave(Object cl) {
 
         //devuelve las solicitudes con una clave especifica
         String msj = "";
@@ -190,7 +205,7 @@ public class HashMapeoAMuchos {
         NodoHashMapeoM aux = this.hash[pos];
         boolean encontrado = false;
         while (!encontrado && aux != null) {
-            if (aux.getClave().equals(cl)) {
+            if (aux.getElem().equals(cl)) {
                 encontrado = true;
             } else {
                 aux = aux.getEnlace();
