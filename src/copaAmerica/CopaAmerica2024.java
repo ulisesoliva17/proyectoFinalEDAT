@@ -31,14 +31,15 @@ public class CopaAmerica2024 {
         eleccion = sc.nextInt();
          if(eleccion == 1){
             cargarDatos(datos, equipos, partidos, ciudades);
-            String txt1 = "Se ha realizado la carga de datos correctamente. \n";
+            String txt1 = "Se ha realizado la carga de datos correctamente.";
             System.out.println(txt1);
-            txt1 += "ESTADO INICIAL DE LA BASE DE DATOS: \n";
+            txt1 += "ESTADO INICIAL DE LA BASE DE DATOS:";
             txt1 += mostrarSistemaAux(equipos, partidos, ciudades);
             registrarMovimiento(txt1);
             ejecutaMenu(equipos, partidos, ciudades);
         }
         
+         //Escritura de datos para el SELECCIONAR RUTA
          String txt2 = "ESTADO FINAL DE LA BDD: \n";
         txt2 += mostrarSistemaAux(equipos, partidos, ciudades);
         registrarMovimiento(txt2);
@@ -49,17 +50,12 @@ public class CopaAmerica2024 {
      public static void cargarDatos(String datos, ArbolAVL equipos, HashMapeoAMuchos partidos,Grafo ciudades){ 
         try(BufferedReader bufferLectura = new BufferedReader(new FileReader(datos))){
             String linea;
-            //while encargado de cada linea de lectura del txt
+            //while encargado de cada linea de lectura del txt, recorrera todas las lineas del txt
             while((linea = bufferLectura.readLine()) != null){
                 //guardamos en un arreglo de String la linea completa, separando cada " ; " 
-                //es decir, en la pos 0 guardara la letra, luego en  pos1 lo que venga despues de ","
-                //y asi sucesivamente hasta que termine la linea de codigo y salte a la siguiente
                String[] datosLinea = linea.split(";");
-//                for (String elemento : datosLinea) {
-//                    System.out.println(elemento);
-//                }
+               
                 if (datosLinea[0].equals("C")) {
-                    //Si es una ciudad esa linea, al metodo cargarCiudad le debo pasar la linea (guardada en el arreglo) y el grafo
                     cargarCiudad(datosLinea, ciudades);
                 }
                 if (datosLinea[0].equals("R")) {
@@ -93,6 +89,9 @@ public class CopaAmerica2024 {
         double distancia = Double.parseDouble(datosRuta[3]);
          Ciudad orig= new Ciudad(ori,true,true);
          Ciudad dest= new Ciudad(des,true,true);
+         //Uso constructor para el obtenerDato, el cual devuelve las ciudades ya construidas
+         //No le puedo pasar un string, ya que recibe Object, por ende le paso el Objeto creado
+         //y el obtenerDato se encargara de devolverme lo que necesito ocupando el equals de Ciudad
          Ciudad origen =(Ciudad) ciudades.obtenerDato(orig);
          Ciudad destino = (Ciudad) ciudades.obtenerDato(dest);
         ciudades.insertarArco(origen, destino, distancia);
@@ -118,7 +117,6 @@ public class CopaAmerica2024 {
         
         ClavePartido unaClave = new ClavePartido(eq1, eq2);
         Partido unPartido= new Partido(insta, ciu, esta, G1, G2);
-        
         partidos.insertar(unaClave, unPartido);
     }
        //MENU
@@ -181,13 +179,13 @@ public class CopaAmerica2024 {
         
         System.out.println("4. ALTAS-BAJAS-MODIFICACIONES de PARTIDOS.");
         
-        System.out.println("5. Consulta sobre Equipos.");
+        System.out.println("5. CONSULTA SOBRE EQUIPOS.");
         
-        System.out.println("6. Consulta sobre Partidos.");
+        System.out.println("6. CONSULTA SOBRE PARTIDOS.");
         
-        System.out.println("7. Consulta sobre Rutas Aereas entre Ciudades.");
+        System.out.println("7. CONSULTA SOBRE RUTAS AEREAS ENTRE CIUDADES.");
         
-        System.out.println("8. Mostrar Sistema.");
+        System.out.println("8. MOSTRAR SISTEMA.");
     
     }   
          //1 - ABM CIUDADES

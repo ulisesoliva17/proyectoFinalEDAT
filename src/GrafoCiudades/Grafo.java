@@ -102,7 +102,6 @@ public class Grafo {
     }
 
     public boolean eliminarArco(Object ori, Object des) {
-        //Nota: REVISAR EL CASO DONDE ES EL PRIMER NODO ADYACENTE
         boolean rta = false;
         NodoVert origen = ubicarVertice(ori);
         //Pregunto si encontro el nodo(da igual cual, si tengo de un nodo luego puedo ir al otro

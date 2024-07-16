@@ -346,20 +346,20 @@ public class ArbolAVL {
         if (n != null) {
             if (balance(n) == 2) {
                 if (balance(n.getIzquierdo()) >= 0) {
-                    System.out.println("rota a derecha simple con pivote: "+n.getElem());
+                    //System.out.println("rota a derecha simple con pivote: "+n.getElem());
                     aux = rotarDerecha(n);
                 } else {
-                    System.out.println("rota a izquierda derecha con pivote: "+n.getElem());
+                    //System.out.println("rota a izquierda derecha con pivote: "+n.getElem());
                     aux = rotarIzqDer(n);
                 }
 
             }
             if (balance(n) == -2) {
                 if (balance(n.getDerecho()) <= 0) {
-                    System.out.println("rota a izquierda simple con pivote: "+n.getElem());
+                    //System.out.println("rota a izquierda simple con pivote: "+n.getElem());
                     aux = rotarIzquierda(n);
                 } else {
-                    System.out.println("rota a derecha izquierda con pivote: "+n.getElem());
+                    //System.out.println("rota a derecha izquierda con pivote: "+n.getElem());
                     aux = rotarDerIzq(n);
                 }
             }
