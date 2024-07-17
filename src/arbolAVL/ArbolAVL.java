@@ -13,7 +13,9 @@ public class ArbolAVL {
         raiz = null;
     }
     //------------------------------------------------------------------------------------------
-
+    public void vaciar(){
+        raiz=null;
+    }
     private NodoAVL obtenerNodoAux(NodoAVL aux, Comparable buscado) {
         NodoAVL retorno = null;
         if (aux != null) {
@@ -471,5 +473,17 @@ public class ArbolAVL {
 
         }
     }
-    
+    public Lista obtenerEquipos() {
+        Lista equipos = new Lista();
+        obtenerEquiposAux(raiz, equipos);
+        return equipos;
+    }
+
+    private void obtenerEquiposAux(NodoAVL nodo, Lista equipos) {
+        if (nodo != null) {
+            obtenerEquiposAux(nodo.getIzquierdo(), equipos);
+            equipos.insertar(equipos.longitud() + 1, nodo.getElem());
+            obtenerEquiposAux(nodo.getDerecho(), equipos);
+        }
+    }
 }

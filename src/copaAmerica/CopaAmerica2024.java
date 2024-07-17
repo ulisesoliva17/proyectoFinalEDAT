@@ -6,6 +6,7 @@ import TDAS.Ciudad;
 import TDAS.ClavePartido;
 import TDAS.Partido;
 import TDAS.Equipo;
+import TDAS.EquipoPorGoles;
 import arbolAVL.ArbolAVL;
 import Lineales.Lista;
 import java.util.Scanner;
@@ -949,6 +950,9 @@ public class CopaAmerica2024 {
                     break;              
                 case 2:
                     rangoEquipos(equipos);
+                    break;
+                case 3:
+                        mostrarEquiposOrdenadosPorGoles(equipos);
                     break; 
                 default:
                     System.out.println("Ingrese una opcion valida");
@@ -963,6 +967,7 @@ public class CopaAmerica2024 {
         System.out.println("1. Mostrar Datos de un Equipo.");  
         System.out.println("2. Mostrar todos los equipos cuyo nombre este" +
         "alfabéticamente en el rango entre 2 Equipos.");
+         System.out.println("3. Mostrar todos los equipos Ordenados mediante la cantidad de Goles.");
     }
     
     public static void mostrarEquipo(ArbolAVL equipos){
@@ -1019,6 +1024,29 @@ public class CopaAmerica2024 {
             }else{
                 System.out.println("Algunos de los Equipos ingresados no existen");
             }
+        }
+    }
+    public static void mostrarEquiposOrdenadosPorGoles(ArbolAVL equipos) {
+        Scanner sc = new Scanner(System.in);
+        int eleccion;
+        System.out.println("MOSTRAR LOS EQUIPOS ORDENADOS POR GOLES.");
+        System.out.println("1. CONTINUAR.");
+        System.out.println("2. CANCELAR.");
+        eleccion = sc.nextInt();
+        if (eleccion == 1) {
+            ArbolAVL equiposPorGoles = new ArbolAVL();
+            Lista lista = new Lista();
+            lista = equipos.obtenerEquipos();
+            while (!lista.esVacia()) {
+                EquipoPorGoles nuevo = new EquipoPorGoles(lista.recuperar(1));
+                equiposPorGoles.insertar(nuevo);
+                lista.eliminar(1);
+            }
+            System.out.println(equiposPorGoles.toString());
+            equiposPorGoles.vaciar();
+            //testeo
+//            System.out.println(equiposPorGoles.toString());
+//            System.out.println(lista.toString());
         }
     }
 
@@ -1080,6 +1108,8 @@ public class CopaAmerica2024 {
             }
         }
     }
+
+    
     public static void consultaRutas(Grafo ciudades){
         Scanner sc = new Scanner(System.in);
         int eleccion;
