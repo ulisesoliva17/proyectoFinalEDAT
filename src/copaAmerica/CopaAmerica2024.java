@@ -144,7 +144,7 @@ public class CopaAmerica2024 {
                     abmEquipos(equipos);
                     break;
                 case 4:
-                    abmPartidos(partidos);
+                    abmPartidos(partidos,ciudades);
                     break;
                 case 5:
                     consultaEquipos(equipos);
@@ -677,7 +677,7 @@ public class CopaAmerica2024 {
     } 
     
     //HashMapeoAMuchos partidos
-     public static void abmPartidos(HashMapeoAMuchos partidos){
+     public static void abmPartidos(HashMapeoAMuchos partidos,Grafo ciudades){
         
     Scanner sc = new Scanner(System.in);
         int eleccion;
@@ -690,13 +690,13 @@ public class CopaAmerica2024 {
                 case 0:
                     break;
                 case 1:
-                    agregarPartido(partidos);
+                    agregarPartido(partidos,ciudades);
                     break;              
                 case 2:
                     eliminarPartido(partidos);
                     break;
                 case 3:
-                    modificarPartido(partidos);
+                    modificarPartido(partidos,ciudades);
                     break;  
                 default:
                     System.out.println("Ingrese una opcion valida");
@@ -718,54 +718,84 @@ public class CopaAmerica2024 {
     
     
     //ALTAS 
-    public static void agregarPartido(HashMapeoAMuchos partidos){
+    public static void agregarPartido(HashMapeoAMuchos partidos, Grafo ciudades) {
         Scanner sc = new Scanner(System.in);
         String txt = "";
-        int eleccion,G1,G2;
-        String eq1,eq2,insta,ciu,esta;
-        
+        int eleccion, G1, G2;
+        String eq1, eq2, insta, ciu, esta;
+
         System.out.println("ALTA DE UN PARTIDO.");
-        
+
         System.out.println("1. CONTINUAR.");
         System.out.println("2. CANCELAR.");
         eleccion = sc.nextInt();
-        
-        if(eleccion == 1){
-        
+
+        if (eleccion == 1) {
+
             System.out.println("Ingrese el nombre del Equipo 1.");
             eq1 = sc.next();
 
             System.out.println("Ingrese el nombre del Equipo 1.");
-            eq2=sc.next();
-            
+            eq2 = sc.next();
+
             System.out.println("Ingrese la instancia en la que se jugo el Partido.");
-            insta=sc.next();
-            
+            insta = sc.next();
+
             System.out.println("Ingrese la Ciudad en la que se jugo el Partido.");
-            ciu=sc.next();
+            ciu = sc.next();
+            
+            String ciuCorrecta = verificarCiudad(ciu, ciudades);
             
             System.out.println("Ingrese el Estadio en el que se jugo el Partido.");
-            esta=sc.next();
-            
+            esta = sc.next();
+
             System.out.println("Ingrese los Goles del Equipo 1.");
-            G1=sc.nextInt();
-            
+            G1 = sc.nextInt();
+
             System.out.println("Ingrese los Goles del Equipo 2.");
-            G2=sc.nextInt();
-            
-            ClavePartido clave= new ClavePartido(eq1, eq2);
-            
-            Partido parti= new Partido(insta, ciu, esta, G1, G2);
-            boolean exito= partidos.insertar(clave, parti);
-            if(exito){
-                
-                txt = "Partido entre: " +clave.toString()+" con los datos: "+parti.toString()+", insertado correctamente.";
+            G2 = sc.nextInt();
+
+            ClavePartido clave = new ClavePartido(eq1, eq2);
+
+            Partido parti = new Partido(insta, ciuCorrecta, esta, G1, G2);
+            boolean exito = partidos.insertar(clave, parti);
+            if (exito) {
+
+                txt = "Partido entre: " + clave.toString() + " con los datos: " + parti.toString() + ", insertado correctamente.";
                 System.out.println(txt);
-                registrarMovimiento(txt);   
-            }else{
+                registrarMovimiento(txt);
+            } else {
                 System.out.println("ERROR. No ha sido posible insertar el partido.");
             }
         }
+    }
+    public static String verificarCiudad(String city,Grafo ciudades){
+        Scanner sc = new Scanner(System.in);
+         Ciudad ciudad= new Ciudad(city, true, true);
+         Ciudad nueva=(Ciudad) ciudades.obtenerDato(ciudad);
+         String retorno=null;
+         boolean esSede=false;
+         if(nueva!=null){
+             esSede = nueva.esSede();
+         }
+         String ciu;
+         boolean rta=false;
+         if(nueva!=null && esSede){
+             retorno=city;
+         }else{
+            do{
+                System.out.println("La ciudad que usted ingreso es incorrecta, o bien, no es sede. ");
+                System.out.println("Ingrese la Ciudad en la que se jugo el Partido.");
+                ciu=sc.next();
+                ciudad= new Ciudad(ciu, true, true);
+                nueva=(Ciudad) ciudades.obtenerDato(ciudad);
+            }while(nueva == null);
+            esSede = nueva.esSede();
+            if(esSede){
+                retorno=ciu;
+            }
+         }
+         return retorno;
     }
      //BAJAS
     public static void eliminarPartido(HashMapeoAMuchos partidos){
@@ -823,7 +853,7 @@ public class CopaAmerica2024 {
     }
      
     //MODIFICACIONES   
-    public static void modificarPartido(HashMapeoAMuchos partidos){
+    public static void modificarPartido(HashMapeoAMuchos partidos,Grafo ciudades){
         Scanner sc = new Scanner(System.in);
          int eleccion,G1,G2;
         String eq1,eq2,insta,ciu,esta;
@@ -873,7 +903,8 @@ public class CopaAmerica2024 {
 
                         System.out.println("Ingrese la ciudad.");
                         ciu = sc.next();
-
+                        String ciuCorrecta = verificarCiudad(ciu, ciudades);
+                        
                         System.out.println("Ingrese el estadio.");
                         esta = sc.next();
 
@@ -883,7 +914,7 @@ public class CopaAmerica2024 {
                         System.out.println("Ingrese los goles del Equipo 2.");
                         G2 = sc.nextInt();
 
-                        partidoAModificar.setCiudad(ciu);
+                        partidoAModificar.setCiudad(ciuCorrecta);
                         partidoAModificar.setEstadio(esta);
                         partidoAModificar.setGolesEq1(G1);
                         partidoAModificar.setGolesEq2(G2);
