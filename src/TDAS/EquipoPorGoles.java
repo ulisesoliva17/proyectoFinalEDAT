@@ -77,14 +77,12 @@ public class EquipoPorGoles implements Comparable {
    public int compareTo(Object obj) {
         int resultado=0;
         EquipoPorGoles otroEquipo = (EquipoPorGoles) obj;
-        if (golesAFavor < otroEquipo.getGolesAFavor()) {
-            resultado = -1;
-        }
-        if (golesAFavor == otroEquipo.getGolesAFavor()) {
-            resultado = nombre.compareTo(otroEquipo.getNombre().toUpperCase());
-        }
-        if (golesAFavor > otroEquipo.getGolesAFavor()) {
-            resultado = 1;
+        if (this.golesAFavor < otroEquipo.getGolesAFavor()) {
+            resultado= -1;
+        } else if (this.golesAFavor == otroEquipo.getGolesAFavor()) {
+            resultado= this.nombre.compareTo(otroEquipo.getNombre().toUpperCase());
+        } else {
+            resultado= 1;
         }
         return resultado;
     }

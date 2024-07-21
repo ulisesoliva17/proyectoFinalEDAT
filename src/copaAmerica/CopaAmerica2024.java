@@ -66,7 +66,7 @@ public class CopaAmerica2024 {
                     cargarEquipo(datosLinea, equipos);
                 }
                 if (datosLinea[0].equals("P")) {
-                    cargarPartido(datosLinea, partidos);
+                    cargarPartido(datosLinea, partidos,equipos);
                 }
             
             }
@@ -107,7 +107,7 @@ public class CopaAmerica2024 {
           Equipo eq1= new Equipo(nombre, nombreDT, grupo, puntosGanados, golesAFavor, golesEnContra);
           equipos.insertar(eq1);
       }
-       private static void cargarPartido(String[] datosPartido, HashMapeoAMuchos partidos){
+       private static void cargarPartido(String[] datosPartido, HashMapeoAMuchos partidos,ArbolAVL equipos){
         String eq1 = datosPartido[1];
         String eq2 = datosPartido[2];
         String insta = datosPartido[3];
@@ -119,7 +119,28 @@ public class CopaAmerica2024 {
         ClavePartido unaClave = new ClavePartido(eq1, eq2);
         Partido unPartido= new Partido(insta, ciu, esta, G1, G2);
         partidos.insertar(unaClave, unPartido);
+        
+        Equipo nuevo= new Equipo(eq1, "", 'A', 0, 0, 0);
+        Equipo equipo1= (Equipo) equipos.obtenerDato(nuevo);
+        equipo1.setGolesAFavor(equipo1.getGolesAFavor()+G1);
+        equipo1.setGolesEnContra(equipo1.getGolesEnContra()+G2);
+        
+        Equipo nuevo2= new Equipo(eq2, "", 'A', 0, 0, 0);
+        Equipo equipo2= (Equipo) equipos.obtenerDato(nuevo2);
+        equipo2.setGolesAFavor(equipo2.getGolesAFavor()+G2);
+        equipo2.setGolesEnContra(equipo2.getGolesEnContra()+G1);
+        sumarPuntos(equipo1,equipo2,G1,G2);
     }
+       public static void sumarPuntos(Equipo equipo1,Equipo equipo2,int G1,int G2){
+           if(G1>G2){
+               equipo1.setPuntosGanados(equipo1.getPuntosGanados()+3);
+           }else if( G1==G2){
+               equipo1.setPuntosGanados(equipo1.getPuntosGanados()+1);
+               equipo2.setPuntosGanados(equipo2.getPuntosGanados()+1);
+           }else{
+               equipo2.setPuntosGanados(equipo2.getPuntosGanados()+3);
+           }
+       }
        //MENU
         public static void ejecutaMenu(ArbolAVL equipos,HashMapeoAMuchos partidos,Grafo ciudades){
         Scanner sc = new Scanner(System.in);
@@ -145,7 +166,7 @@ public class CopaAmerica2024 {
                     abmEquipos(equipos);
                     break;
                 case 4:
-                    abmPartidos(partidos,ciudades);
+                    abmPartidos(partidos,ciudades,equipos);
                     break;
                 case 5:
                     consultaEquipos(equipos);
@@ -678,7 +699,7 @@ public class CopaAmerica2024 {
     } 
     
     //HashMapeoAMuchos partidos
-     public static void abmPartidos(HashMapeoAMuchos partidos,Grafo ciudades){
+     public static void abmPartidos(HashMapeoAMuchos partidos,Grafo ciudades,ArbolAVL equipos){
         
     Scanner sc = new Scanner(System.in);
         int eleccion;
@@ -691,10 +712,10 @@ public class CopaAmerica2024 {
                 case 0:
                     break;
                 case 1:
-                    agregarPartido(partidos,ciudades);
+                    agregarPartido(partidos,ciudades, equipos);
                     break;              
                 case 2:
-                    eliminarPartido(partidos);
+                    eliminarPartido(partidos,equipos);
                     break;
                 case 3:
                     modificarPartido(partidos,ciudades);
@@ -719,7 +740,7 @@ public class CopaAmerica2024 {
     
     
     //ALTAS 
-    public static void agregarPartido(HashMapeoAMuchos partidos, Grafo ciudades) {
+    public static void agregarPartido(HashMapeoAMuchos partidos, Grafo ciudades,ArbolAVL equipos) {
         Scanner sc = new Scanner(System.in);
         String txt = "";
         int eleccion, G1, G2;
@@ -761,7 +782,17 @@ public class CopaAmerica2024 {
             Partido parti = new Partido(insta, ciuCorrecta, esta, G1, G2);
             boolean exito = partidos.insertar(clave, parti);
             if (exito) {
+                Equipo nuevo= new Equipo(eq1, "", 'A', 0, 0, 0);
+                Equipo equipo1= (Equipo) equipos.obtenerDato(nuevo);
+                equipo1.setGolesAFavor(equipo1.getGolesAFavor()+G1);
+                equipo1.setGolesEnContra(equipo1.getGolesEnContra()+G2);
 
+                Equipo nuevo2= new Equipo(eq2, "", 'A', 0, 0, 0);
+                Equipo equipo2= (Equipo) equipos.obtenerDato(nuevo2);
+                equipo2.setGolesAFavor(equipo2.getGolesAFavor()+G2);
+                equipo2.setGolesEnContra(equipo2.getGolesEnContra()+G1);
+                calcularPuntos(equipo1,equipo2,G1,G2);
+                
                 txt = "Partido entre: " + clave.toString() + " con los datos: " + parti.toString() + ", insertado correctamente.";
                 System.out.println(txt);
                 registrarMovimiento(txt);
@@ -799,52 +830,62 @@ public class CopaAmerica2024 {
          return retorno;
     }
      //BAJAS
-    public static void eliminarPartido(HashMapeoAMuchos partidos){
+    public static void eliminarPartido(HashMapeoAMuchos partidos, ArbolAVL equipos) {
         Scanner sc = new Scanner(System.in);
         int eleccion;
         String txt = "";
-        String eq1,eq2,insta;
-        
+        String eq1, eq2, insta;
+
         System.out.println("BAJA DE UN PARTIDO.");
         System.out.println("1. CONTINUAR.");
         System.out.println("2. CANCELAR.");
         eleccion = sc.nextInt();
-        
-        if(eleccion == 1){
-        
+
+        if (eleccion == 1) {
+
             System.out.println("Ingrese el nombre del Equipo 1.");
             eq1 = sc.next();
 
             System.out.println("Ingrese el nombre del Equipo 2.");
-            eq2=sc.next();
+            eq2 = sc.next();
 
-            ClavePartido claveBusqueda= new ClavePartido(eq1, eq2);
-            ClavePartido clave= (ClavePartido) partidos.buscarClave(claveBusqueda);
+            ClavePartido claveBusqueda = new ClavePartido(eq1, eq2);
+            ClavePartido clave = (ClavePartido) partidos.buscarClave(claveBusqueda);
 
             String msg = partidos.toStringConClave(clave);
 
-            if(msg.equals("ERROR.")){
+            if (msg.equals("ERROR.")) {
 
                 System.out.println("La clave ingresada no existe.");
 
-            }else{
+            } else {
 
                 System.out.println("Seleccione la instancia del Partido que desea eliminar.");
                 System.out.println(msg);
 
                 insta = sc.next();
-                Partido partidito= new Partido(insta, "", "", 0, 0);
+                Partido partidito = new Partido(insta, "", "", 0, 0);
                 Partido partidoAEliminar = (Partido) partidos.obtenerDato(clave, partidito);
-
+                
+                Equipo nuevo = new Equipo(eq1, "", 'A', 0, 0, 0);
+                Equipo equipo1 = (Equipo) equipos.obtenerDato(nuevo);
+                equipo1.setGolesAFavor(equipo1.getGolesAFavor() - partidoAEliminar.getGolesEq1());
+                equipo1.setGolesEnContra(equipo1.getGolesEnContra() - partidoAEliminar.getGolesEq2());
+                
+                Equipo nuevo2 = new Equipo(eq2, "", 'A', 0, 0, 0);
+                Equipo equipo2 = (Equipo) equipos.obtenerDato(nuevo2);
+                equipo2.setGolesAFavor(equipo2.getGolesAFavor() - partidoAEliminar.getGolesEq2());
+                equipo2.setGolesEnContra(equipo2.getGolesEnContra() - partidoAEliminar.getGolesEq1());
+                //Como se elimino un Partido, entonces elimino los puntos que ese partido habia repartido
+                restarPuntos(equipo1,equipo2,partidoAEliminar.getGolesEq1(),partidoAEliminar.getGolesEq2());
+                
                 boolean res = partidos.eliminar(clave, partidoAEliminar);
-
-
-                if(res){
-                    txt = "Partido entre: " +eq1+ " y destino: " +eq2+ " en la instancia: "+insta+" ELIMINADO correctamente.";
+                if (res) {
+                    txt = "Partido entre: " + eq1 + " y destino: " + eq2 + " en la instancia: " + insta + " ELIMINADO correctamente.";
                     System.out.println(txt);
                     registrarMovimiento(txt);
 
-                }else{
+                } else {
 
                     System.out.println("ERROR. El Partido no existe.");
 
@@ -852,11 +893,21 @@ public class CopaAmerica2024 {
             }
         }
     }
+    public static void restarPuntos(Equipo equipo1,Equipo equipo2,int G1,int G2){
+           if(G1>G2){
+               equipo1.setPuntosGanados(equipo1.getPuntosGanados()-3);
+           }else if( G1==G2){
+               equipo1.setPuntosGanados(equipo1.getPuntosGanados()-1);
+               equipo2.setPuntosGanados(equipo2.getPuntosGanados()-1);
+           }else{
+               equipo2.setPuntosGanados(equipo2.getPuntosGanados()-3);
+           }
+       }
      
     //MODIFICACIONES   
     public static void modificarPartido(HashMapeoAMuchos partidos,Grafo ciudades){
         Scanner sc = new Scanner(System.in);
-         int eleccion,G1,G2;
+         int eleccion;
         String eq1,eq2,insta,ciu,esta;
         String txt = "";
         
@@ -899,7 +950,7 @@ public class CopaAmerica2024 {
                     eleccion = sc.nextInt();
 
                     if(eleccion == 1){
-
+                        System.out.println("Solo se podra modificar la ciudad, y el estadio");
                         System.out.println("Ingreso de datos para modificar el partido:");
 
                         System.out.println("Ingrese la ciudad.");
@@ -909,16 +960,10 @@ public class CopaAmerica2024 {
                         System.out.println("Ingrese el estadio.");
                         esta = sc.next();
 
-                        System.out.println("Ingrese los goles del Equipo 1.");
-                        G1 = sc.nextInt();
                         
-                        System.out.println("Ingrese los goles del Equipo 2.");
-                        G2 = sc.nextInt();
-
                         partidoAModificar.setCiudad(ciuCorrecta);
                         partidoAModificar.setEstadio(esta);
-                        partidoAModificar.setGolesEq1(G1);
-                        partidoAModificar.setGolesEq2(G2);
+
                         
                         txt = "Partido con: " +eq1+ " y  " +eq2+ " MODIFICADO correctamente.";
                         System.out.println(txt);
@@ -952,7 +997,7 @@ public class CopaAmerica2024 {
                     rangoEquipos(equipos);
                     break;
                 case 3:
-                        mostrarEquiposOrdenadosPorGoles(equipos);
+                    mostrarEquiposOrdenadosPorGoles(equipos);
                     break; 
                 default:
                     System.out.println("Ingrese una opcion valida");
@@ -965,8 +1010,8 @@ public class CopaAmerica2024 {
         
         System.out.println("0. ATRAS.");
         System.out.println("1. Mostrar Datos de un Equipo.");  
-        System.out.println("2. Mostrar todos los equipos cuyo nombre este" +
-        "alfabéticamente en el rango entre 2 Equipos.");
+        System.out.println("2. Mostrar todos los equipos cuyo nombre este " +
+        "alfabeticamente en el rango entre 2 Equipos.");
          System.out.println("3. Mostrar todos los equipos Ordenados mediante la cantidad de Goles.");
     }
     
@@ -997,31 +1042,35 @@ public class CopaAmerica2024 {
             }
         }    
     }
-    public static void rangoEquipos(ArbolAVL equipos){
+    public static void rangoEquipos(ArbolAVL equipos) {
         Scanner sc = new Scanner(System.in);
         int eleccion;
-        String nombre1,nombre2;
+        String nombre1, nombre2;
         System.out.println("MOSTRAR RANGO ENTRE 2 EQUIPOS.");
         System.out.println("1. CONTINUAR.");
         System.out.println("2. CANCELAR.");
         eleccion = sc.nextInt();
-        if(eleccion ==1){
+        if (eleccion == 1) {
             System.out.println("Ingrese el nombre del Equipo1.");
             nombre1 = sc.next();
-            
+
             System.out.println("Ingrese el nombre del Equipo 2.");
             nombre2 = sc.next();
-            
-            Equipo nuevo1= new Equipo(nombre1, "", 'A', 0, 0, 0);
-            Equipo eq1= (Equipo) equipos.obtenerDato(nuevo1);
-            
-            Equipo nuevo2= new Equipo(nombre2, "", 'A', 0, 0, 0);
-            Equipo eq2= (Equipo) equipos.obtenerDato(nuevo2);
-            
-            if(eq1!=null && eq2!=null){
-                Lista equiposRango=equipos.listarRango(eq1, eq2);
+
+            Equipo nuevo1 = new Equipo(nombre1, "", 'A', 0, 0, 0);
+            Equipo eq1 = (Equipo) equipos.obtenerDato(nuevo1);
+
+            Equipo nuevo2 = new Equipo(nombre2, "", 'A', 0, 0, 0);
+            Equipo eq2 = (Equipo) equipos.obtenerDato(nuevo2);
+
+            if (eq1 != null && eq2 != null) {
+                Lista equiposRango = equipos.listarRango(eq1, eq2);
+
+                String txt = "Los equipos se han listado en el rango indicado";
                 System.out.println(equiposRango.toString());
-            }else{
+                System.out.println(txt);
+                registrarMovimiento(txt);
+            } else {
                 System.out.println("Algunos de los Equipos ingresados no existen");
             }
         }
@@ -1036,17 +1085,17 @@ public class CopaAmerica2024 {
         if (eleccion == 1) {
             ArbolAVL equiposPorGoles = new ArbolAVL();
             Lista lista = new Lista();
-            lista = equipos.obtenerEquipos();
+            lista = equipos.listarInOrden();
             while (!lista.esVacia()) {
                 EquipoPorGoles nuevo = new EquipoPorGoles(lista.recuperar(1));
                 equiposPorGoles.insertar(nuevo);
                 lista.eliminar(1);
             }
-            System.out.println(equiposPorGoles.toString());
+            //System.out.println(equiposPorGoles.toString());
+            lista= equiposPorGoles.listarInOrden();
+            System.out.println(lista.toString());
+            lista.vaciar();
             equiposPorGoles.vaciar();
-            //testeo
-//            System.out.println(equiposPorGoles.toString());
-//            System.out.println(lista.toString());
         }
     }
 

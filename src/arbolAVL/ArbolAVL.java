@@ -473,17 +473,17 @@ public class ArbolAVL {
 
         }
     }
-    public Lista obtenerEquipos() {
+    public Lista listarInOrden() {
         Lista equipos = new Lista();
-        obtenerEquiposAux(raiz, equipos);
+        listarInOrdenAux(raiz, equipos);
         return equipos;
     }
 
-    private void obtenerEquiposAux(NodoAVL nodo, Lista equipos) {
+    private void listarInOrdenAux(NodoAVL nodo, Lista equipos) {
         if (nodo != null) {
-            obtenerEquiposAux(nodo.getIzquierdo(), equipos);
-            equipos.insertar(equipos.longitud() + 1, nodo.getElem());
-            obtenerEquiposAux(nodo.getDerecho(), equipos);
+            listarInOrdenAux(nodo.getIzquierdo(), equipos);
+            equipos.insertar(1, nodo.getElem());
+            listarInOrdenAux(nodo.getDerecho(), equipos);
         }
     }
 }
