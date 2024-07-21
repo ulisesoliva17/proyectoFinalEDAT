@@ -791,7 +791,7 @@ public class CopaAmerica2024 {
                 Equipo equipo2= (Equipo) equipos.obtenerDato(nuevo2);
                 equipo2.setGolesAFavor(equipo2.getGolesAFavor()+G2);
                 equipo2.setGolesEnContra(equipo2.getGolesEnContra()+G1);
-                calcularPuntos(equipo1,equipo2,G1,G2);
+                sumarPuntos(equipo1,equipo2,G1,G2);
                 
                 txt = "Partido entre: " + clave.toString() + " con los datos: " + parti.toString() + ", insertado correctamente.";
                 System.out.println(txt);
