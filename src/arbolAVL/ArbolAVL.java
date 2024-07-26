@@ -161,8 +161,8 @@ public class ArbolAVL {
 
     private boolean eliminarAux(NodoAVL hijo, NodoAVL padre, Comparable elemento) {
         boolean exito = false;
-        System.out.println("entra el eliminarAux con hijo: "+ hijo.getElem()+ " buscando al "
-        +"elemento "+elemento.toString());
+        /*System.out.println("entra el eliminarAux con hijo: "+ hijo.getElem()+ " buscando al "
+        +"elemento "+elemento.toString());*/
         if (hijo != null && !exito) {
             if ((elemento.compareTo(hijo.getElem())) == 0 && !exito) {
 
@@ -247,7 +247,6 @@ public class ArbolAVL {
                 }
             } 
         }
-        System.out.println(this.toStringAux(raiz));
     }
 
     //Eliminar: Caso 2, donde el nodo tiene un solo hijo
@@ -273,7 +272,6 @@ public class ArbolAVL {
                 raiz = hijo.getDerecho();
             }
         }
-        System.out.println(this.toStringAux(this.raiz));
     }
 
     private void tieneDosHijos(NodoAVL nodoCandidato, NodoAVL padreCandidato, NodoAVL raiz) {
@@ -295,13 +293,11 @@ public class ArbolAVL {
 
         //actualizacion de altura
         nodoCandidato.recalcularAltura();
-         System.out.println(this.toStringAux(this.raiz));
     }
     private void tienedosHijosCandidatoNulo(NodoAVL n){
         n.setElemento(n.getIzquierdo().getElem());
         n.setElemento(n.getIzquierdo().getElem());        
         n.setIzquierdo(n.getIzquierdo().getIzquierdo());
-         System.out.println(this.toStringAux(this.raiz));
     }
 
     //-----------------------------------------------------------------------------------------------

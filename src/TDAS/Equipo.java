@@ -77,7 +77,7 @@ public class Equipo implements Comparable {
     }
     public boolean equals(Object obj){
         Equipo otroEquipo= (Equipo) obj;
-        return nombre.equalsIgnoreCase(otroEquipo.getNombre().toUpperCase());
+        return nombre.equalsIgnoreCase(otroEquipo.getNombre());
     }
     
     public int compareTo(Object obj) {

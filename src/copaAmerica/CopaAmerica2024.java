@@ -15,6 +15,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.FileWriter;
+import java.util.HashMap;
 
 // @author Ulises
 public class CopaAmerica2024 {
@@ -329,14 +330,15 @@ public class CopaAmerica2024 {
         if (eleccion == 1) {
             System.out.println("Ingrese el nombre de la ciudad que desea modificar.");
             nombre = sc.next();
-            System.out.println("Ingrese si la ciudad posee alojamiento disponible para modificar.");
-            alo = sc.nextBoolean();
-            System.out.println("Ingrese si la ciudad ahora es Sede para modificar.");
-            esSede = sc.nextBoolean();
+
             Ciudad ciu = new Ciudad(nombre, true, true);
             Ciudad nueva = (Ciudad) ciudades.obtenerDato(ciu);
             boolean exito = false;
             if (nueva != null) {
+                System.out.println("Ingrese si la ciudad posee alojamiento disponible para modificar.");
+                alo = sc.nextBoolean();
+                System.out.println("Ingrese si la ciudad ahora es Sede para modificar.");
+                esSede = sc.nextBoolean();
                 exito = true;
                 nueva.setAlmaceDispo(alo);
                 nueva.setAlmaceDispo(esSede);
@@ -355,8 +357,8 @@ public class CopaAmerica2024 {
             }
         }
     }
+    
     //2 - ABM RUTAS
-
     public static void abmRutas(Grafo ciudades) {
         Scanner sc = new Scanner(System.in);
         int eleccion;
@@ -498,10 +500,11 @@ public class CopaAmerica2024 {
             System.out.println("De la ruta puede modificarse la distancia unicamente.");
 
             System.out.println("Ingrese el nombre de la ciudad origen");
-            ori = sc.next();
+            ori = sc.next().toUpperCase();
+            
 
             System.out.println("Ingrese el nombre de la ciudad destino");
-            des = sc.next();
+            des = sc.next().toUpperCase();
             Ciudad orig = new Ciudad(ori, true, true);
             Ciudad dest = new Ciudad(des, true, true);
             Ciudad origen = (Ciudad) ciudades.obtenerDato(orig);
@@ -525,7 +528,7 @@ public class CopaAmerica2024 {
             }
         }
     }
-    //3 - ABM CLIENTES
+    //3 - ABM EQUIPOS
 
     public static void abmEquipos(ArbolAVL equipos) {
 
@@ -568,7 +571,7 @@ public class CopaAmerica2024 {
     //ALTAS 
     private static void agregarEquipo(ArbolAVL equipos) {
         Scanner sc = new Scanner(System.in);
-        int nroID, eleccion;
+        int  eleccion;
         String nombre, nombreDT;
         char grupo;
         int puntosGanados, GAF, GEC;
@@ -624,7 +627,7 @@ public class CopaAmerica2024 {
         if (eleccion == 1) {
             System.out.println("Ingrese el nombre del Equipo que desea dar de BAJA.");
 
-            nombre = sc.next();
+            nombre = sc.next().toUpperCase();
             Equipo nuevo = new Equipo(nombre, "", 'A', 0, 0, 0);
             Equipo eq = (Equipo) equipos.obtenerDato(nuevo);
             boolean exito = equipos.eliminar(eq);
@@ -641,8 +644,8 @@ public class CopaAmerica2024 {
             }
         }
     }
+    
     //MODIFICACIONES
-
     private static void modificarEquipo(ArbolAVL equipos) {
         Scanner sc = new Scanner(System.in);
         String txt = "";
@@ -656,7 +659,7 @@ public class CopaAmerica2024 {
 
         if (eleccion == 1) {
             System.out.println("Ingrese el nombre del Equipo que desea modificar");
-            nombreVerificar = sc.next();
+            nombreVerificar = sc.next().toUpperCase();
             //Equipo comparar= new Equipo(nombreVerificar, "", '-',0, 0, 0);
             Equipo nuevo = new Equipo(nombreVerificar, "", 'A', 0, 0, 0);
             Equipo eq = (Equipo) equipos.obtenerDato(nuevo);
@@ -741,10 +744,10 @@ public class CopaAmerica2024 {
         if (eleccion == 1) {
 
             System.out.println("Ingrese el nombre del Equipo 1.");
-            eq1 = sc.next();
+            eq1 = sc.next().toUpperCase();
 
             System.out.println("Ingrese el nombre del Equipo 2.");
-            eq2 = sc.next();
+            eq2 = sc.next().toUpperCase();
 
             System.out.println("Ingrese la instancia en la que se jugo el Partido.");
             insta = sc.next();
@@ -799,14 +802,13 @@ public class CopaAmerica2024 {
             esSede = nueva.esSede();
         }
         String ciu;
-        boolean rta = false;
         if (nueva != null && esSede) {
             retorno = city;
         } else {
             do {
                 System.out.println("La ciudad que usted ingreso es incorrecta, o bien, no es sede. ");
                 System.out.println("Ingrese la Ciudad en la que se jugo el Partido.");
-                ciu = sc.next();
+                ciu = sc.next().toUpperCase();
                 ciudad = new Ciudad(ciu, true, true);
                 nueva = (Ciudad) ciudades.obtenerDato(ciudad);
             } while (nueva == null);
@@ -817,128 +819,62 @@ public class CopaAmerica2024 {
         }
         return retorno;
     }
-    //BAJAS
-//
-//    public static void eliminarPartido(HashMapeoAMuchos partidos, ArbolAVL equipos) {
-//        Scanner sc = new Scanner(System.in);
-//        int eleccion;
-//        String txt = "";
-//        String eq1, eq2, insta;
-//
-//        System.out.println("BAJA DE UN PARTIDO.");
-//        System.out.println("1. CONTINUAR.");
-//        System.out.println("2. CANCELAR.");
-//        eleccion = sc.nextInt();
-//
-//        if (eleccion == 1) {
-//
-//            System.out.println("Ingrese el nombre del Equipo 1.");
-//            eq1 = sc.next();
-//
-//            System.out.println("Ingrese el nombre del Equipo 2.");
-//            eq2 = sc.next();
-//
-//            ClavePartido claveBusqueda = new ClavePartido(eq1, eq2);
-//            ClavePartido clave = (ClavePartido) partidos.buscarClave(claveBusqueda);
-//
-//            String msg = partidos.toStringConClave(clave);
-//
-//            if (msg.equals("ERROR.")) {
-//
-//                System.out.println("La clave ingresada no existe.");
-//
-//            } else {
-//
-//                System.out.println("Seleccione la instancia del Partido que desea eliminar.");
-//                System.out.println(msg);
-//
-//                insta = sc.next();
-//                Partido partidito = new Partido(insta, "", "", 0, 0);
-//                Partido partidoAEliminar = (Partido) partidos.obtenerDato(clave, partidito);
-//
-//                Equipo nuevo = new Equipo(eq1, "", 'A', 0, 0, 0);
-//                Equipo equipo1 = (Equipo) equipos.obtenerDato(nuevo);
-//
-//                Equipo nuevo2 = new Equipo(eq2, "", 'A', 0, 0, 0);
-//                Equipo equipo2 = (Equipo) equipos.obtenerDato(nuevo2);
-//
-//                //Como se elimino un Partido, entonces elimino los puntos que ese partido habia repartido
-//                    calcularPuntosYGoles(equipo1, equipo2, partidoAEliminar.getGolesEq1(), partidoAEliminar.getGolesEq2(), 2);
-//
-//                boolean res = partidos.eliminar(clave, partidoAEliminar);
-//                if (res) {
-//                    txt = "Partido entre: " + eq1 + " y destino: " + eq2 + " en la instancia: " + insta + " ELIMINADO correctamente.";
-//                    System.out.println(txt);
-//                    registrarMovimiento(txt);
-//                    txt = "Ademas, se actualizaron correspondientemente los datos de ambos Equipos de los cuales se elimino el Partido.";
-//                    System.out.println(txt);
-//                    registrarMovimiento(txt);
-//
-//                } else {
-//
-//                    System.out.println("ERROR. El Partido no existe.");
-//
-//                }
-//            }
-//        }
-//    }
+    
     public static void eliminarPartido(HashMapeoAMuchos partidos, ArbolAVL equipos) {
-    Scanner sc = new Scanner(System.in);
-    int eleccion;
-    String txt = "";
-    String eq1, eq2, insta;
+        Scanner sc = new Scanner(System.in);
+        int eleccion;
+        String txt = "";
+        String eq1, eq2, insta;
 
-    System.out.println("BAJA DE UN PARTIDO.");
-    System.out.println("1. CONTINUAR.");
-    System.out.println("2. CANCELAR.");
-    eleccion = sc.nextInt();
+        System.out.println("BAJA DE UN PARTIDO.");
+        System.out.println("1. CONTINUAR.");
+        System.out.println("2. CANCELAR.");
+        eleccion = sc.nextInt();
 
-    if (eleccion == 1) {
-        System.out.println("Ingrese el nombre del Equipo 1.");
-        eq1 = sc.next();
+        if (eleccion == 1) {
+            System.out.println("Ingrese el nombre del Equipo 1.");
+            eq1 = sc.next().toUpperCase();
 
-        System.out.println("Ingrese el nombre del Equipo 2.");
-        eq2 = sc.next();
+            System.out.println("Ingrese el nombre del Equipo 2.");
+            eq2 = sc.next().toUpperCase();
 
-        ClavePartido claveBusqueda = new ClavePartido(eq1, eq2);
-        ClavePartido clave = (ClavePartido) partidos.buscarClave(claveBusqueda);
+            ClavePartido claveBusqueda = new ClavePartido(eq1, eq2);
+            ClavePartido clave = (ClavePartido) partidos.buscarClave(claveBusqueda);
 
-        if (clave==null) {
-            System.out.println("La clave ingresada no existe.");
-        } else {
-            String msg = partidos.toStringConClave(clave);
-            System.out.println("Seleccione la instancia del Partido que desea eliminar.");
-            System.out.println(msg);
-
-            insta = sc.next();
-            Partido partidito = new Partido(insta, "", "", 0, 0);
-            Partido partidoAEliminar = (Partido) partidos.obtenerDato(clave, partidito);
-
-            Equipo nuevo = new Equipo(eq1, "", 'A', 0, 0, 0);
-            Equipo equipo1 = (Equipo) equipos.obtenerDato(nuevo);
-
-            Equipo nuevo2 = new Equipo(eq2, "", 'A', 0, 0, 0);
-            Equipo equipo2 = (Equipo) equipos.obtenerDato(nuevo2);
-
-
-            // Como se eliminó un Partido, se eliminan los puntos que ese partido había repartido
-            calcularPuntosYGoles(equipo1, equipo2, partidoAEliminar.getGolesEq1(), partidoAEliminar.getGolesEq2(), 2);
-
-            boolean res = partidos.eliminar(clave, partidoAEliminar);
-            if (res) {
-                txt = "Partido entre: " + eq1 + " y destino: " + eq2 + " en la instancia: " + insta + " ELIMINADO correctamente.";
-                System.out.println(txt);
-                registrarMovimiento(txt);
-                txt = "Además, se actualizaron correspondientemente los datos de ambos Equipos de los cuales se eliminó el Partido.";
-                System.out.println(txt);
-                registrarMovimiento(txt);
+            if (clave == null) {
+                System.out.println("La clave ingresada no existe.");
             } else {
-                System.out.println("ERROR. El Partido no existe.");
+                String msg = partidos.toStringConClave(clave);
+                System.out.println("Seleccione la instancia del Partido que desea eliminar.");
+                System.out.println(msg);
+
+                insta = sc.next().toUpperCase();
+                Partido partidito = new Partido(insta, "", "", 0, 0);
+                Partido partidoAEliminar = (Partido) partidos.obtenerDato(clave, partidito);
+
+                Equipo nuevo = new Equipo(eq1, "", 'A', 0, 0, 0);
+                Equipo equipo1 = (Equipo) equipos.obtenerDato(nuevo);
+
+                Equipo nuevo2 = new Equipo(eq2, "", 'A', 0, 0, 0);
+                Equipo equipo2 = (Equipo) equipos.obtenerDato(nuevo2);
+
+                // Como se eliminó un Partido, se eliminan los puntos que ese partido había repartido
+                calcularPuntosYGoles(equipo1, equipo2, partidoAEliminar.getGolesEq1(), partidoAEliminar.getGolesEq2(), 2);
+
+                boolean res = partidos.eliminar(clave, partidoAEliminar);
+                if (res) {
+                    txt = "Partido entre: " + eq1 + " y destino: " + eq2 + " en la instancia: " + insta + " ELIMINADO correctamente.";
+                    System.out.println(txt);
+                    registrarMovimiento(txt);
+                    txt = "Además, se actualizaron correspondientemente los datos de ambos Equipos de los cuales se elimino el Partido.";
+                    System.out.println(txt);
+                    registrarMovimiento(txt);
+                } else {
+                    System.out.println("ERROR. El Partido no existe.");
+                }
             }
         }
     }
-}
-
 
     public static void calcularPuntosYGoles(Equipo equipo1, Equipo equipo2, int G1, int G2, int restarOsumar) {
         if (restarOsumar == 1) {
@@ -986,10 +922,10 @@ public class CopaAmerica2024 {
         if (eleccion == 1) {
 
             System.out.println("Ingrese el nombre del Equipo 1.");
-            eq1 = sc.next();
+            eq1 = sc.next().toUpperCase();
 
             System.out.println("Ingrese el nombre del Equipo 2.");
-            eq2 = sc.next();
+            eq2 = sc.next().toUpperCase();
 
             ClavePartido claveBusqueda = new ClavePartido(eq1, eq2);
             ClavePartido clave = (ClavePartido) partidos.buscarClave(claveBusqueda);
@@ -1004,7 +940,7 @@ public class CopaAmerica2024 {
 
                 System.out.println("Seleccione la instancia del Partido que desea modificar");
                 System.out.println(msg);
-                insta = sc.next();
+                insta = sc.next().toUpperCase();
                 Partido partidito = new Partido(insta, "", "", 0, 0);
 
                 Partido partidoAModificar = (Partido) partidos.obtenerDato(clave, partidito);
@@ -1093,7 +1029,7 @@ public class CopaAmerica2024 {
         if (eleccion == 1) {
 
             System.out.println("Ingrese el nombre del Equipo que desea consultar.");
-            nombre = sc.next();
+            nombre = sc.next().toUpperCase();
 
             Equipo nuevo = new Equipo(nombre, "", 'A', 0, 0, 0);
             Equipo eq = (Equipo) equipos.obtenerDato(nuevo);
@@ -1119,10 +1055,10 @@ public class CopaAmerica2024 {
         eleccion = sc.nextInt();
         if (eleccion == 1) {
             System.out.println("Ingrese el nombre del Equipo1.");
-            nombre1 = sc.next();
+            nombre1 = sc.next().toUpperCase();
 
             System.out.println("Ingrese el nombre del Equipo 2.");
-            nombre2 = sc.next();
+            nombre2 = sc.next().toUpperCase();
 
             Equipo nuevo1 = new Equipo(nombre1, "", 'A', 0, 0, 0);
             Equipo eq1 = (Equipo) equipos.obtenerDato(nuevo1);
@@ -1207,10 +1143,10 @@ public class CopaAmerica2024 {
         if (eleccion == 1) {
 
             System.out.println("Ingrese el nombre del Equipo 1.");
-            eq1 = sc.next();
+            eq1 = sc.next().toUpperCase();
 
             System.out.println("Ingrese el nombre del Equipo 2.");
-            eq2 = sc.next();
+            eq2 = sc.next().toUpperCase();
 
             ClavePartido unaClave = new ClavePartido(eq1, eq2);
             System.out.println("Con la Clave Ingresada se registran los siguientes Partidos: ");
@@ -1242,7 +1178,7 @@ public class CopaAmerica2024 {
                     caminoMenosCiudades(ciudades);
                     break;
                 case 2:
-                    //caminoMenosKm(ciudades);
+                    caminoMenosKm(ciudades);
                     break;
                 default:
                     System.out.println("Ingrese una opcion valida");
@@ -1274,9 +1210,9 @@ public class CopaAmerica2024 {
 
         if (eleccion == 1) {
             System.out.println("Ingrese la ciudad de origen");
-            ori = sc.next();
+            ori = sc.next().toUpperCase();
             System.out.println("Ingrese la ciudad de destino");
-            des = sc.next();
+            des = sc.next().toUpperCase();
             Ciudad orig = new Ciudad(ori, true, true);
             Ciudad dest = new Ciudad(des, true, true);
             Ciudad origen = (Ciudad) ciudades.obtenerDato(orig);
@@ -1287,6 +1223,42 @@ public class CopaAmerica2024 {
             if (!camino.esVacia()) {
                 System.out.println("El camino que pasa por menos ciudades es:");
                 System.out.println(camino.toString());
+            } else {
+                System.out.println("ERROR. No existe camino");
+            }
+
+        }
+    }
+    //CAMINO MAS RAPIDO
+
+    public static void caminoMenosKm(Grafo ciudades) {
+        Scanner sc = new Scanner(System.in);
+        int eleccion;
+        String ori, des;
+
+        System.out.println("OBTENER CAMINO MAS RAPIDO.");
+        System.out.println("1. CONTINUAR.");
+        System.out.println("2. CANCELAR.");
+        eleccion = sc.nextInt();
+
+        if (eleccion == 1) {
+            System.out.println("Ingrese la ciudad de origen");
+            ori = sc.next().toUpperCase();
+            System.out.println("Ingrese la ciudad de destino");
+            des = sc.next().toUpperCase();
+            Ciudad orig = new Ciudad(ori, true, true);
+            Ciudad dest = new Ciudad(des, true, true);
+            Ciudad origen = (Ciudad) ciudades.obtenerDato(orig);
+            Ciudad destino = (Ciudad) ciudades.obtenerDato(dest);
+
+            HashMap camino = ciudades.caminoMasRapido(origen, destino);
+
+            if (!camino.isEmpty()) {
+                System.out.println("El camino que pasa por menos ciudades es:");
+                Lista elCamino = (Lista) camino.get("caminoMasRapido");
+                System.out.println(elCamino.toString());
+                System.out.println("Con un total de km de: " + (double) camino.get("distancia"));
+
             } else {
                 System.out.println("ERROR. No existe camino");
             }

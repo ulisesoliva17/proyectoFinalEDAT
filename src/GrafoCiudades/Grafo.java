@@ -377,8 +377,9 @@ public class Grafo {
                     //si el adyacente aun no fue visitado entonces entra
                     if (visitados.localizar(ady.getVertice().getElem()) < 0) {
                         
-                        if (!masCorto.esVacia()) { //si ya encontro un camino(masCorto no es vacia), entonces 
-                                                   //verifica que los nodos visitados no sean mas que los del camino encontrado
+                        if (!masCorto.esVacia()) { 
+                        //si ya encontro un camino(masCorto no es vacia), entonces 
+                        //verifica que los nodos visitados no sean mas que los del camino encontrado
                                                     
                             if (visitados.longitud() < masCorto.longitud()) {
                                 visitados.insertar(visitados.longitud()+1,ady.getVertice().getElem());
@@ -404,6 +405,62 @@ public class Grafo {
             }
         }
         return masCorto;
+    }
+     public HashMap caminoMasRapido(Object origen, Object destino) {
+        HashMap aux = new HashMap();
+        double km = 0;
+        Lista visitados = new Lista();
+        Lista rutaMasRapida = new Lista(); 
+        NodoVert nodoOrigen = ubicarVertice(origen);
+        NodoVert nodoDestino = ubicarVertice(destino);
+        
+        if (nodoOrigen != null && nodoDestino != null) {
+
+            aux.put("distancia", Double.MAX_VALUE); 
+            rutaMasRapida = CaminoMasRapidoAux(nodoOrigen, destino, visitados, rutaMasRapida, aux, km);
+            aux.put("caminoMasRapido", rutaMasRapida);
+
+        }
+        return aux;
+    }
+
+    private Lista CaminoMasRapidoAux(NodoVert n, Object destino, Lista visitados, Lista rutaMasRapida, HashMap aux, double km) {
+        
+        if (n != null) {
+            
+            visitados.insertar(visitados.longitud()+1,n.getElem());
+            
+            if (n.getElem().equals(destino)) {
+                //si llego a destino y los km son menores a los de        
+                //la ultima ruta guardada, actualiza la ruta
+                if (km < (double) aux.get("distancia")) {
+                    
+                    rutaMasRapida = visitados.clone();
+                    aux.put("distancia", km);
+                }
+                
+            } else {
+                
+                NodoAdy ady = n.getPrimerAdy();
+                while (ady != null) {
+                    //suma los km de la ruta
+                    km += ady.getEtiqueta();
+                    //si no visito el vertice y los km son menores a los recorridos
+                    if (visitados.localizar(ady.getVertice().getElem()) < 0 && km < (double) aux.get("distancia")) {
+                        rutaMasRapida = CaminoMasRapidoAux(ady.getVertice(), destino, visitados, rutaMasRapida, aux, km);
+                    }
+                    //resta los km a la vuelta de la recursíon, 
+                    //con esto suma los km de los caminos que aun no recorre a los que ya recorrio
+                    km -= ady.getEtiqueta();
+                    ady = ady.getSigAdyacente();
+                    
+                }
+            }
+            //elimina el ultimo visitado para comparar con otros caminos a la vuelta
+            visitados.eliminar(visitados.longitud());
+        }
+
+        return rutaMasRapida;
     }
 //    public boolean insertarVertice(Object nuevoVertice) {
 //        NodoVert aux = inicio;
