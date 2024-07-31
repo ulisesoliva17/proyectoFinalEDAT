@@ -77,13 +77,13 @@ public class Equipo implements Comparable {
     }
     public boolean equals(Object obj){
         Equipo otroEquipo= (Equipo) obj;
-        return nombre.equalsIgnoreCase(otroEquipo.getNombre());
+        return nombre.equals(otroEquipo.getNombre());
     }
     
     public int compareTo(Object obj) {
         Equipo otroEquipo = (Equipo) obj;
         // Comparación basada en el nombre del equipo (orden lexicográfico)
-        return this.nombre.compareTo(otroEquipo.getNombre().toUpperCase());
+        return this.nombre.compareTo(otroEquipo.getNombre());
     }
     
 

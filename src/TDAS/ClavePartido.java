@@ -14,7 +14,7 @@ public class ClavePartido {
        /*Hacemos esto porque el enunciado nos pide que:
         donde siempre se guardará como equipo1 el de
         nombre menor alfabéticamente que equipo2 */
-        if (eq1.compareToIgnoreCase(eq2) < 0) {
+        if (eq1.compareTo(eq2) < 0) {
             equipo1 = eq1;
             equipo2 = eq2;
         } else {
@@ -37,7 +37,7 @@ public class ClavePartido {
     
     public boolean equals(Object obj){
         ClavePartido otraClave= (ClavePartido)obj;
-        return equipo1.equalsIgnoreCase(otraClave.equipo1) && equipo2.equalsIgnoreCase(otraClave.equipo2);
+        return equipo1.equals(otraClave.equipo1) && equipo2.equals(otraClave.equipo2);
     }
 
     @Override

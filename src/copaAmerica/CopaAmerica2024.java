@@ -19,6 +19,7 @@ import java.util.HashMap;
 
 // @author Ulises
 public class CopaAmerica2024 {
+    //podria ir aca las estructuras
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -296,7 +297,7 @@ public class CopaAmerica2024 {
 
         if (eleccion == 1) {
             System.out.println("Ingrese el nombre de la ciudad que desea dar de BAJA.");
-            nombre = sc.next();
+            nombre = sc.next().toUpperCase();
             Ciudad ciu = new Ciudad(nombre, true, true);
             Ciudad nueva = (Ciudad) ciudades.obtenerDato(ciu);
             boolean exito = ciudades.eliminarVertice(nueva);
@@ -330,6 +331,7 @@ public class CopaAmerica2024 {
         if (eleccion == 1) {
             System.out.println("Ingrese el nombre de la ciudad que desea modificar.");
             nombre = sc.next();
+            nombre=nombre.toUpperCase();
 
             Ciudad ciu = new Ciudad(nombre, true, true);
             Ciudad nueva = (Ciudad) ciudades.obtenerDato(ciu);
@@ -413,9 +415,11 @@ public class CopaAmerica2024 {
         if (eleccion == 1) {
             System.out.println("Ingrese el nombre de la ciudad origen");
             ori = sc.next();
+            ori=ori.toUpperCase();
 
             System.out.println("Ingrese el nombre de la ciudad destino");
             des = sc.next();
+            des=des.toUpperCase();
 
             System.out.println("Ingrese la distancia entre las ciudades");
             distancia = sc.nextDouble();
@@ -457,9 +461,11 @@ public class CopaAmerica2024 {
 
             System.out.println("Ingrese el nombre de la ciudad origen");
             ori = sc.next();
+            ori=ori.toUpperCase();
 
             System.out.println("Ingrese el nombre de la ciudad destino");
             des = sc.next();
+            des=des.toUpperCase();
 
             Ciudad orig = new Ciudad(ori, true, true);
             Ciudad dest = new Ciudad(des, true, true);
@@ -487,8 +493,9 @@ public class CopaAmerica2024 {
         Scanner sc = new Scanner(System.in);
         String ori, des;
         int eleccion;
-        double distancia;
+        double distancia = 0;
         String txt = "";
+        boolean rta = false;
 
         System.out.println("MODIFICACION DE UNA RUTA.");
         System.out.println("1. CONTINUAR.");
@@ -500,22 +507,28 @@ public class CopaAmerica2024 {
             System.out.println("De la ruta puede modificarse la distancia unicamente.");
 
             System.out.println("Ingrese el nombre de la ciudad origen");
-            ori = sc.next().toUpperCase();
-            
+            ori = sc.next();
+            ori = ori.toUpperCase();
 
             System.out.println("Ingrese el nombre de la ciudad destino");
-            des = sc.next().toUpperCase();
+            des = sc.next();
+            des = des.toUpperCase();
+
             Ciudad orig = new Ciudad(ori, true, true);
             Ciudad dest = new Ciudad(des, true, true);
             Ciudad origen = (Ciudad) ciudades.obtenerDato(orig);
             Ciudad destino = (Ciudad) ciudades.obtenerDato(dest);
 
             boolean exito = ((origen != null) && (destino != null));
-
+            
             if (exito) {
-
                 System.out.println("Ingrese la distancia MODIFICADA.");
                 distancia = sc.nextDouble();
+                
+                rta = ciudades.modificarArco(origen, destino, distancia);
+            }
+            
+            if (rta) {
 
                 txt = "Se modifico la distancia de la ruta " + origen + " a " + destino + " y ahora es: " + distancia + "km.";
                 System.out.println(txt);
@@ -528,6 +541,7 @@ public class CopaAmerica2024 {
             }
         }
     }
+    
     //3 - ABM EQUIPOS
 
     public static void abmEquipos(ArbolAVL equipos) {
@@ -627,7 +641,8 @@ public class CopaAmerica2024 {
         if (eleccion == 1) {
             System.out.println("Ingrese el nombre del Equipo que desea dar de BAJA.");
 
-            nombre = sc.next().toUpperCase();
+            nombre = sc.next();
+            nombre = nombre.toUpperCase();
             Equipo nuevo = new Equipo(nombre, "", 'A', 0, 0, 0);
             Equipo eq = (Equipo) equipos.obtenerDato(nuevo);
             boolean exito = equipos.eliminar(eq);
@@ -659,7 +674,8 @@ public class CopaAmerica2024 {
 
         if (eleccion == 1) {
             System.out.println("Ingrese el nombre del Equipo que desea modificar");
-            nombreVerificar = sc.next().toUpperCase();
+            nombreVerificar = sc.next();
+            nombreVerificar=nombreVerificar.toUpperCase();
             //Equipo comparar= new Equipo(nombreVerificar, "", '-',0, 0, 0);
             Equipo nuevo = new Equipo(nombreVerificar, "", 'A', 0, 0, 0);
             Equipo eq = (Equipo) equipos.obtenerDato(nuevo);
@@ -744,10 +760,12 @@ public class CopaAmerica2024 {
         if (eleccion == 1) {
 
             System.out.println("Ingrese el nombre del Equipo 1.");
-            eq1 = sc.next().toUpperCase();
+            eq1 = sc.next();
+            eq1=eq1.toUpperCase();
 
             System.out.println("Ingrese el nombre del Equipo 2.");
-            eq2 = sc.next().toUpperCase();
+            eq2 = sc.next();
+            eq2=eq1.toUpperCase();
 
             System.out.println("Ingrese la instancia en la que se jugo el Partido.");
             insta = sc.next();
@@ -922,10 +940,12 @@ public class CopaAmerica2024 {
         if (eleccion == 1) {
 
             System.out.println("Ingrese el nombre del Equipo 1.");
-            eq1 = sc.next().toUpperCase();
+            eq1 = sc.next();
+            eq1= eq1.toUpperCase();
 
             System.out.println("Ingrese el nombre del Equipo 2.");
-            eq2 = sc.next().toUpperCase();
+            eq2 = sc.next();
+            eq2= eq1.toUpperCase();
 
             ClavePartido claveBusqueda = new ClavePartido(eq1, eq2);
             ClavePartido clave = (ClavePartido) partidos.buscarClave(claveBusqueda);
@@ -1175,9 +1195,12 @@ public class CopaAmerica2024 {
                 case 0:
                     break;
                 case 1:
-                    caminoMenosCiudades(ciudades);
+                    consultarRuta(ciudades);
                     break;
                 case 2:
+                    caminoMenosCiudades(ciudades);
+                    break;
+                    case 3:
                     caminoMenosKm(ciudades);
                     break;
                 default:
@@ -1188,14 +1211,62 @@ public class CopaAmerica2024 {
         } while (eleccion != 0);
 
     }
-
+    
     private static void menuConsultarRutas() {
 
         System.out.println("0. ATRAS.");
-        System.out.println("1. Obtener el camino que llegue de A a B que pase por menos ciudades.");
-        System.out.println("2. Obtener el camino que llegue de A a B de menor distancia en kilómetros.");
+         System.out.println("1. Consulta sobre la existencia de una ruta entre 2 Ciudades.");
+        System.out.println("2. Obtener el camino que llegue de A a B que pase por menos ciudades.");
+        System.out.println("3. Obtener el camino que llegue de A a B de menor distancia en kilómetros.");
 
     }
+    public static void consultarRuta(Grafo ciudades) {
+
+        Scanner sc = new Scanner(System.in);
+        String ori, des;
+        int eleccion;
+        String txt = "";
+        boolean rta = false;
+
+        System.out.println("CONSULTA DE UNA RUTA.");
+        System.out.println("1. CONTINUAR.");
+        System.out.println("2. CANCELAR.");
+        eleccion = sc.nextInt();
+
+        if (eleccion == 1) {
+
+            System.out.println("Ingrese el nombre de la ciudad origen");
+            ori = sc.next();
+            ori = ori.toUpperCase();
+
+            System.out.println("Ingrese el nombre de la ciudad destino");
+            des = sc.next();
+            des = des.toUpperCase();
+
+            Ciudad orig = new Ciudad(ori, true, true);
+            Ciudad dest = new Ciudad(des, true, true);
+            Ciudad origen = (Ciudad) ciudades.obtenerDato(orig);
+            Ciudad destino = (Ciudad) ciudades.obtenerDato(dest);
+
+            boolean exito = ((origen != null) && (destino != null));
+            if (exito) {
+                rta = ciudades.existeArco(origen, destino);
+
+                if (rta) {
+
+                    txt = "Existe ruta entre: " + origen + " y: " + destino;
+                    System.out.println(txt);
+                    registrarMovimiento(txt);
+
+                } else {
+                    System.out.println("NO existe ruta entre: " + origen + " y: " + destino);
+                }
+            }else{
+                    System.out.println("No se encontro alguna de las ciudades ingresadas ");
+            }
+        }
+    }
+
 
     //CAMINO QUE PASA POR MENOS CIUDADES
     public static void caminoMenosCiudades(Grafo ciudades) {
@@ -1255,8 +1326,10 @@ public class CopaAmerica2024 {
 
             if (!camino.isEmpty()) {
                 System.out.println("El camino que pasa por menos ciudades es:");
+                //como ese es el nombre clave que guarde en el hashMap, recupero la lista dandole ese nombre por parametro
                 Lista elCamino = (Lista) camino.get("caminoMasRapido");
                 System.out.println(elCamino.toString());
+                //como distancia siempre la actualizo en el final, la distancia quedo actualizada con la suma total en el hashMap
                 System.out.println("Con un total de km de: " + (double) camino.get("distancia"));
 
             } else {

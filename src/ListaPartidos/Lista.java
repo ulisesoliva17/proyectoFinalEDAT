@@ -1,6 +1,6 @@
 
 package ListaPartidos;
-import TDAS.Partido;
+
 /**
  *
  * @author ulise

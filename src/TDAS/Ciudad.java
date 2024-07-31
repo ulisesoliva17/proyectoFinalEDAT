@@ -26,7 +26,7 @@ public class Ciudad implements Comparable {
     
     public boolean equals(Object obj){
         Ciudad otra= (Ciudad) obj;
-        return nombre.equalsIgnoreCase(otra.getNombre().toUpperCase());
+        return nombre.equals(otra.getNombre());
     }
     public String getNombre(){
         return nombre;

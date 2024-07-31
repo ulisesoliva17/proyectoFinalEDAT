@@ -80,7 +80,7 @@ public class EquipoPorGoles implements Comparable {
         if (this.golesAFavor < otroEquipo.getGolesAFavor()) {
             resultado= -1;
         } else if (this.golesAFavor == otroEquipo.getGolesAFavor()) {
-            resultado= this.nombre.compareTo(otroEquipo.getNombre().toUpperCase());
+            resultado= this.nombre.compareTo(otroEquipo.getNombre());
         } else {
             resultado= 1;
         }

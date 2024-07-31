@@ -65,7 +65,7 @@ public class Partido {
     //para recorrer los partidos que se disputaron entre arg-chile por ejemplo
     public boolean equals(Object obj){
         Partido otroPartido= (Partido)obj;
-        return instancia.equalsIgnoreCase(otroPartido.getInstancia());
+        return instancia.equals(otroPartido.getInstancia());
     }
 
 }

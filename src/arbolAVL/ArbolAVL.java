@@ -96,16 +96,70 @@ public class ArbolAVL {
     }
     //------------------------------------------------------------------------------------------------
 
-    public boolean insertar(Comparable elem) {
+//    public boolean insertar(Comparable elem) {
+//        boolean exito = true;
+//        if (raiz == null) {
+//            raiz = new NodoAVL(elem,null, null);
+//        } else {
+//            System.out.println("se interta el elemento: "+ elem);
+//            exito = insertarAux(raiz, elem);
+//            System.out.println(this.toStringAux(raiz));
+//        }
+//        return exito;
+//    }
+
+//    private boolean insertarAux(NodoAVL aux, Comparable elem) {
+//        boolean rta = true;
+//        if ((elem.compareTo(aux.getElem())) == 0) {
+//            rta = false;
+//        } else if ((elem.compareTo(aux.getElem())) < 0) {
+//            if (aux.getIzquierdo() != null) {
+//                rta = insertarAux(aux.getIzquierdo(), elem);
+//                //aca debe de rotar
+//            } else {
+//                aux.setIzquierdo(new NodoAVL(elem, null, null));
+//            }
+//        } else {
+//            if (aux.getDerecho() != null) {
+//                rta = insertarAux(aux.getDerecho(), elem);
+//                //Aca debe de rotar
+//            } else {
+//                aux.setDerecho(new NodoAVL(elem, null, null));
+//            }
+//        }
+//        if (rta) {
+//            //Como aux tiene un nuevo hijo, debo de recalcularle la altura
+//            aux.recalcularAltura();
+//            
+//            //Este caso solo sucede cuando el elemento se inserto, y en la vuelta recursiva
+//            //Contenplamos el caso de su la raiz esta desbalanceada, la balanceamos
+//            if (aux.getElem().compareTo(raiz.getElem()) == 0) {
+//                //en el caso que no se necesite balancear, inserta el nodo que ya estaba como raiz
+//                //pero si la raiz esta desbalanceada, entonces si cambia la nuevaRaiz luego del balanceo.
+//                NodoAVL raizNueva = balancearAux(aux);
+//                raiz = raizNueva;
+//            }
+//
+//            /*Esto funciona a la vuelta recursiva, pregunta si los hijos del 
+//            nodo que esta desapilandose recursivamente, estan desbalanceados, entonces los balancea*/           
+//            aux.setIzquierdo(balancearAux(aux.getIzquierdo()));
+//            aux.setDerecho(balancearAux(aux.getDerecho()));
+//
+//        }
+//        return rta;
+//    }
+       public boolean insertar(Comparable elem) {
         boolean exito = true;
         if (raiz == null) {
             raiz = new NodoAVL(elem,null, null);
         } else {
+            //System.out.println("se interta el elemento: "+ elem);
             exito = insertarAux(raiz, elem);
+            //System.out.println(this.toStringAux(raiz));
+            raiz=balancearAux(raiz);
         }
         return exito;
     }
-
     private boolean insertarAux(NodoAVL aux, Comparable elem) {
         boolean rta = true;
         if ((elem.compareTo(aux.getElem())) == 0) {
@@ -113,36 +167,19 @@ public class ArbolAVL {
         } else if ((elem.compareTo(aux.getElem())) < 0) {
             if (aux.getIzquierdo() != null) {
                 rta = insertarAux(aux.getIzquierdo(), elem);
+                aux.recalcularAltura();
+                aux.setIzquierdo(balancearAux(aux.getIzquierdo()));
             } else {
                 aux.setIzquierdo(new NodoAVL(elem, null, null));
             }
         } else {
             if (aux.getDerecho() != null) {
                 rta = insertarAux(aux.getDerecho(), elem);
+                aux.recalcularAltura();
+                aux.setDerecho(balancearAux(aux.getDerecho()));
             } else {
                 aux.setDerecho(new NodoAVL(elem, null, null));
             }
-        }
-        if (rta) {
-            //Como aux tiene un nuevo hijo, debo de recalcularle la altura
-            aux.recalcularAltura();
-            
-            //Este caso solo sucede cuando el elemento se inserto, y en la vuelta recursiva
-            //Contenplamos el caso de su la raiz esta desbalanceada, la balanceamos
-            if (aux.getElem().compareTo(raiz.getElem()) == 0) {
-                //en el caso que no se necesite balancear, inserta el nodo que ya estaba como raiz
-                //pero si la raiz esta desbalanceada, entonces si cambia la nuevaRaiz luego del balanceo.
-                NodoAVL raizNueva = balancearAux(aux);
-                raiz = raizNueva;
-            }
-
-            /*Esto funciona a la vuelta recursiva, pregunta si los hijos del 
-            nodo que esta desapilandose recursivamente, estan desbalanceados, entonces los balancea*/
-            aux.setIzquierdo(balancearAux(aux.getIzquierdo()));
-            aux.setDerecho(balancearAux(aux.getDerecho()));
-
-            
-
         }
         return rta;
     }
@@ -153,13 +190,77 @@ public class ArbolAVL {
         if (raiz != null) {
             //Arranco con raiz y padre de raiz que es null, luego el metodo lo buscara al nodo que quiera eliminar si no es la raiz
             resultado = eliminarAux(raiz, null, elemento);
+            raiz=balancearAux(raiz);
         } else {
             resultado = false;
         }
         return resultado;
     }
 
-    private boolean eliminarAux(NodoAVL hijo, NodoAVL padre, Comparable elemento) {
+//    private boolean eliminarAux(NodoAVL hijo, NodoAVL padre, Comparable elemento) {
+//        boolean exito = false;
+//        /*System.out.println("entra el eliminarAux con hijo: "+ hijo.getElem()+ " buscando al "
+//        +"elemento "+elemento.toString());*/
+//        if (hijo != null && !exito) {
+//            if ((elemento.compareTo(hijo.getElem())) == 0 && !exito) {
+//
+//                if (hijo.getIzquierdo() == null && hijo.getDerecho() == null) {
+//                    //son Hojas
+//                    eliminarHoja(padre, elemento);
+//                    exito = true;
+//
+//                } else if ((hijo.getIzquierdo() != null && hijo.getDerecho() == null) || (hijo.getIzquierdo() == null && hijo.getDerecho() != null)) {
+//                    //si n tiene UN hijo
+//                    tieneUnHijo(hijo, padre, elemento);
+//                    exito = true;
+//
+//                } else {
+//                    // si n tiene ambos hijos
+//                    //caso donde tiene dos hijos, pero su hijo izquierdo tiene hijo derecho el cual ese es el candidato
+//                    if (hijo.getIzquierdo().getDerecho() != null) {
+//                        //Le paso el hijo, el padre que en principio es null si hijo es la raiz, y le paso de nuevo el hijo
+//                        tieneDosHijos(hijo.getIzquierdo(), null, hijo);
+//                    } else {
+//                        //caso donde tiene dos hijos, pero su hijo izquierdo solo tiene tambien hijo izquierdo
+//                        tienedosHijosCandidatoNulo(hijo);
+//                    }
+//                    exito = true;
+//                }
+//
+//            } else {
+//                //Llamo con el hijo izquierdo, y si es el que busco, entonces el padre es el mismo nodo en el que ahora estoy parado
+//                if (elemento.compareTo(hijo.getElem()) < 0) {
+//                    exito=eliminarAux(hijo.getIzquierdo(), hijo, elemento);
+//                }
+//                //LLamo con el derecho y sucede lo mismo, si es el hijo derecho el que busco, entonces el padre es el nodo en el que ahora estoy parado.
+//                if (elemento.compareTo(hijo.getElem()) > 0) {
+//                    exito=eliminarAux(hijo.getDerecho(), hijo, elemento);
+//                }
+//            }
+//            if (exito) {
+//                //Hacer esto aca, implica que:
+//                /*cuando en la vuelta recursiva, este volviendo, se vayan balanceando los nodos.
+//                Entonces quedan balanceados cuando llegan al primero que se apilo en la pila de recursion*/
+//                //balanceo
+//                hijo.setIzquierdo(balancearAux(hijo.getIzquierdo()));
+//                hijo.setDerecho(balancearAux(hijo.getDerecho()));
+//
+//                //Este caso solo sucede cuando el elemento se inserto, y en la vuelta recursiva
+//                //Contenplamos el caso de su la raiz esta desbalanceada, la balanceamos
+//                if (hijo.getElem().compareTo(raiz.getElem()) == 0) {
+//                    //en el caso que no se necesite balancear, inserta el nodo que ya estaba como raiz
+//                    //pero si la raiz esta desbalanceada, entonces si cambia la nuevaRaiz luego del balanceo.
+//                    NodoAVL raizNueva = balancearAux(hijo);
+//                    raiz = raizNueva;
+//                }
+//
+//                //actualizacion de altura
+//                hijo.recalcularAltura();
+//            }
+//        }
+//        return exito;
+//    }
+       private boolean eliminarAux(NodoAVL hijo, NodoAVL padre, Comparable elemento) {
         boolean exito = false;
         /*System.out.println("entra el eliminarAux con hijo: "+ hijo.getElem()+ " buscando al "
         +"elemento "+elemento.toString());*/
@@ -191,33 +292,19 @@ public class ArbolAVL {
 
             } else {
                 //Llamo con el hijo izquierdo, y si es el que busco, entonces el padre es el mismo nodo en el que ahora estoy parado
+                 //Actualizacion commit 31-07: Balanceo solo donde entro.
                 if (elemento.compareTo(hijo.getElem()) < 0) {
                     exito=eliminarAux(hijo.getIzquierdo(), hijo, elemento);
+                    hijo.recalcularAltura();
+                    hijo.setIzquierdo(balancearAux(hijo.getIzquierdo()));
                 }
                 //LLamo con el derecho y sucede lo mismo, si es el hijo derecho el que busco, entonces el padre es el nodo en el que ahora estoy parado.
+                //Actualizacion commit 31-07: Balanceo solo donde entro.
                 if (elemento.compareTo(hijo.getElem()) > 0) {
                     exito=eliminarAux(hijo.getDerecho(), hijo, elemento);
+                    hijo.recalcularAltura();
+                    hijo.setDerecho(balancearAux(hijo.getDerecho()));
                 }
-            }
-            if (exito) {
-                //Hacer esto aca, implica que:
-                /*cuando en la vuelta recursiva, este volviendo, se vayan balanceando los nodos.
-                Entonces quedan balanceados cuando llegan al primero que se apilo en la pila de recursion*/
-                //balanceo
-                hijo.setIzquierdo(balancearAux(hijo.getIzquierdo()));
-                hijo.setDerecho(balancearAux(hijo.getDerecho()));
-
-                //Este caso solo sucede cuando el elemento se inserto, y en la vuelta recursiva
-                //Contenplamos el caso de su la raiz esta desbalanceada, la balanceamos
-                if (hijo.getElem().compareTo(raiz.getElem()) == 0) {
-                    //en el caso que no se necesite balancear, inserta el nodo que ya estaba como raiz
-                    //pero si la raiz esta desbalanceada, entonces si cambia la nuevaRaiz luego del balanceo.
-                    NodoAVL raizNueva = balancearAux(hijo);
-                    raiz = raizNueva;
-                }
-
-                //actualizacion de altura
-                hijo.recalcularAltura();
             }
         }
         return exito;
@@ -294,6 +381,7 @@ public class ArbolAVL {
         //actualizacion de altura
         nodoCandidato.recalcularAltura();
     }
+    
     private void tienedosHijosCandidatoNulo(NodoAVL n){
         n.setElemento(n.getIzquierdo().getElem());
         n.setElemento(n.getIzquierdo().getElem());        
