@@ -156,6 +156,7 @@ public class ArbolAVL {
             //System.out.println("se interta el elemento: "+ elem);
             exito = insertarAux(raiz, elem);
             //System.out.println(this.toStringAux(raiz));
+            
             raiz=balancearAux(raiz);
         }
         return exito;
@@ -171,6 +172,7 @@ public class ArbolAVL {
                 aux.setIzquierdo(balancearAux(aux.getIzquierdo()));
             } else {
                 aux.setIzquierdo(new NodoAVL(elem, null, null));
+                aux.recalcularAltura();
             }
         } else {
             if (aux.getDerecho() != null) {
@@ -179,23 +181,14 @@ public class ArbolAVL {
                 aux.setDerecho(balancearAux(aux.getDerecho()));
             } else {
                 aux.setDerecho(new NodoAVL(elem, null, null));
+                aux.recalcularAltura();
             }
         }
         return rta;
     }
     //-----------------------------------------------------------------------------------------------------------------------------------------------
 
-    public boolean eliminar(Comparable elemento) {
-        boolean resultado = true;
-        if (raiz != null) {
-            //Arranco con raiz y padre de raiz que es null, luego el metodo lo buscara al nodo que quiera eliminar si no es la raiz
-            resultado = eliminarAux(raiz, null, elemento);
-            raiz=balancearAux(raiz);
-        } else {
-            resultado = false;
-        }
-        return resultado;
-    }
+
 
 //    private boolean eliminarAux(NodoAVL hijo, NodoAVL padre, Comparable elemento) {
 //        boolean exito = false;
@@ -260,6 +253,17 @@ public class ArbolAVL {
 //        }
 //        return exito;
 //    }
+        public boolean eliminar(Comparable elemento) {
+        boolean resultado = true;
+        if (raiz != null) {
+            //Arranco con raiz y padre de raiz que es null, luego el metodo lo buscara al nodo que quiera eliminar si no es la raiz
+            resultado = eliminarAux(raiz, null, elemento);
+            raiz=balancearAux(raiz);
+        } else {
+            resultado = false;
+        }
+        return resultado;
+    }
        private boolean eliminarAux(NodoAVL hijo, NodoAVL padre, Comparable elemento) {
         boolean exito = false;
         /*System.out.println("entra el eliminarAux con hijo: "+ hijo.getElem()+ " buscando al "

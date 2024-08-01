@@ -251,7 +251,7 @@ public class CopaAmerica2024 {
         Scanner sc = new Scanner(System.in);
         String txt = "";
         int eleccion;
-        String nombre;
+        String nombre,aloja,sede;
         boolean aloDispo, esSede;
         System.out.println("ALTA DE UNA CIUDAD.");
         System.out.println("1. CONTINUAR.");
@@ -260,11 +260,13 @@ public class CopaAmerica2024 {
 
         if (eleccion == 1) {
             System.out.println("Ingrese el nombre de la ciudad.");
-            nombre = sc.next();
-            System.out.println("Ingrese si tiene alojamiento disponible.");
-            aloDispo = sc.nextBoolean();
-            System.out.println("Ingrese si es Sede o no");
-            esSede = sc.nextBoolean();
+            nombre = sc.next().toUpperCase();
+            System.out.println("Ingrese T/F si la ciudad posee alojamiento disponible.");
+                aloja= sc.next().toUpperCase();
+                aloDispo=aloja.equals("T");
+                System.out.println("Ingrese T/F si la ciudad es Sede.");
+                sede= sc.next().toUpperCase();
+                esSede=sede.equals("T");
 
             Ciudad unaCiudad = new Ciudad(nombre, aloDispo, esSede);
 
@@ -321,6 +323,7 @@ public class CopaAmerica2024 {
         Scanner sc = new Scanner(System.in);
         String txt = "";
         String nombre;
+        String sede,aloja;
         boolean alo, esSede;
         int eleccion;
         System.out.println("MODIFICA UNA CIUDAD.");
@@ -337,10 +340,12 @@ public class CopaAmerica2024 {
             Ciudad nueva = (Ciudad) ciudades.obtenerDato(ciu);
             boolean exito = false;
             if (nueva != null) {
-                System.out.println("Ingrese si la ciudad posee alojamiento disponible para modificar.");
-                alo = sc.nextBoolean();
+                System.out.println("Ingrese T/F si la ciudad posee alojamiento disponible para modificar.");
+                aloja= sc.next().toUpperCase();
+                alo=aloja.equals("T");
                 System.out.println("Ingrese si la ciudad ahora es Sede para modificar.");
-                esSede = sc.nextBoolean();
+                sede= sc.next().toUpperCase();
+                esSede=sede.equals("T");
                 exito = true;
                 nueva.setAlmaceDispo(alo);
                 nueva.setAlmaceDispo(esSede);
@@ -598,7 +603,7 @@ public class CopaAmerica2024 {
 
         if (eleccion == 1) {
             System.out.println("Ingrese el Nombre.");
-            nombre = sc.next();
+            nombre = sc.next().toUpperCase();
             System.out.println("Ingrese el Nombre del Director Tecnico.");
             nombreDT = sc.next();
             System.out.println("Ingrese al Grupo que pertenece.");
@@ -945,7 +950,7 @@ public class CopaAmerica2024 {
 
             System.out.println("Ingrese el nombre del Equipo 2.");
             eq2 = sc.next();
-            eq2= eq1.toUpperCase();
+            eq2= eq2.toUpperCase();
 
             ClavePartido claveBusqueda = new ClavePartido(eq1, eq2);
             ClavePartido clave = (ClavePartido) partidos.buscarClave(claveBusqueda);
